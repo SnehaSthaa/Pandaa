@@ -120,3 +120,23 @@
     @apply bg-background text-foreground;
   }
 }
+
+.container {
+  @apply mx-auto max-w-[1440px] p-[30px]
+}
+
+@keyframes slideUpFade {
+  0% {
+    transform: translateY(80px);
+  
+  }
+  100% {
+    transform: translateY(0px);
+    
+    
+  }
+}
+
+.slide-up {
+  animation: slideUpFade 1.2s ease-out forwards;
+}
