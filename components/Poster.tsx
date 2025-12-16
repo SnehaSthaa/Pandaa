@@ -24,6 +24,7 @@ import {
 } from '@/components/ui/carousel'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import { cn } from '@/lib/utils'
 
 export function Poster() {
   const [isBorder, setIsBorder] = React.useState<number>(0)
@@ -51,7 +52,9 @@ export function Poster() {
     <>
       <section>
         <div
-          className={`relative container py-[1.875rem] ${isMobile ? '!m-0 !p-0' : 'overflow-visible'}`}
+          className={cn(
+            `relative container py-[1.875rem] ${isMobile ? '!m-0 !p-0' : 'overflow-visible'}`
+          )}
         >
           <Carousel>
             <CarouselContent>
@@ -84,29 +87,39 @@ export function Poster() {
                     )}
 
                     <div
-                      className={`${isMobile ? 'hidden' : 'absolute top-1/2 right-5 flex flex-col gap-6 md:right-10 lg:right-20'}`}
+                      className={cn(
+                        `${isMobile ? 'hidden' : 'absolute top-1/2 right-5 flex flex-col gap-6 md:right-10 lg:right-20'}`
+                      )}
                     >
                       {Array.from({ length: 5 }).map((_, index) => (
                         <button
                           onClick={() => setIsBorder(index)}
                           key={index}
-                          className={`rounded-full bg-white md:h-[1rem] md:w-[1rem] lg:h-[1.3rem] lg:w-[1.3rem] ${isBorder === index ? 'outline-4 outline-amber-300' : ''}`}
+                          className={cn(
+                            `rounded-full bg-white md:h-[1rem] md:w-[1rem] lg:h-[1.3rem] lg:w-[1.3rem] ${isBorder === index ? 'outline-4 outline-amber-300' : ''}`
+                          )}
                         />
                       ))}
                     </div>
 
                     <div
-                      className={`absolute bottom-4 flex w-full flex-col text-white ${isMobile ? 'absolute left-5 mb-8 gap-3' : 'text-center md:bottom-6 lg:bottom-10'}`}
+                      className={cn(
+                        `absolute bottom-4 flex w-full flex-col text-white ${isMobile ? 'absolute left-5 mb-8 gap-3' : 'text-center md:bottom-6 lg:bottom-10'}`
+                      )}
                     >
                       <div className="overflow-hidden">
                         <h1
-                          className={`slide-up font-extrabold ${isMobile ? 'text-5xl' : 'text-xl md:text-6xl lg:text-8xl'}`}
+                          className={cn(
+                            `slide-up font-extrabold ${isMobile ? 'text-5xl' : 'text-xl md:text-6xl lg:text-8xl'}`
+                          )}
                         >
                           Simple to use.
                         </h1>
                       </div>
                       <h1
-                        className={`slide-up font-extrabold ${isMobile ? 'text-5xl' : 'text-xl md:text-6xl lg:text-8xl'}`}
+                        className={cn(
+                          `slide-up font-extrabold ${isMobile ? 'text-5xl' : 'text-xl md:text-6xl lg:text-8xl'}`
+                        )}
                       >
                         Powerful to grow.
                       </h1>
@@ -121,7 +134,9 @@ export function Poster() {
             <Image
               src={greenV}
               alt="decorative green shape"
-              className={`${isMobile ? 'overflow-hidden object-contain' : 'h-auto w-full'}`}
+              className={cn(
+                `${isMobile ? 'overflow-hidden object-contain' : 'h-auto w-full'}`
+              )}
               priority
             />
           </div>
@@ -131,14 +146,18 @@ export function Poster() {
         <div className="relative z-10 mt-16 text-center">
           <h1
             ref={heading1}
-            className={`font-bold text-black ${isMobile ? 'mx-6 text-2xl' : 'md:text-4xl lg:text-5xl'}`}
+            className={cn(
+              `font-bold text-black ${isMobile ? 'mx-6 text-2xl' : 'md:text-4xl lg:text-5xl'}`
+            )}
           >
             empowering businesses with fast, reliable, and future-driven IT
             solutions built for long-term success.
           </h1>
           <p
             ref={heading2}
-            className={`mt-8 text-black ${isMobile ? 'mx-8 text-lg' : 'md:text-xl lg:text-2xl'}`}
+            className={cn(
+              `mt-8 text-black ${isMobile ? 'mx-8 text-lg' : 'md:text-xl lg:text-2xl'}`
+            )}
           >
             We build smart, scalable digital products that solve real problems
             and provide <br /> actual outcomes. Simple to use, powerful

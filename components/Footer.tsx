@@ -6,17 +6,22 @@ import instagram from '../public/footer/insta.svg'
 import linkedin from '../public/footer/linkedin.svg'
 import copyright from '../public/footer/copyright.png'
 import { useIsMobile } from '../components/hooks/use-is-mobile'
+import { cn } from '@/lib/utils'
 
 const Footer = () => {
   const isMobile = useIsMobile()
   return (
     <>
       <div
-        className={`container ${isMobile ? '!m-0 !p-0' : 'bg-contain bg-center bg-no-repeat lg:flex-row lg:gap-16'}`}
+        className={cn(
+          `container ${isMobile ? '!m-0 !p-0' : 'bg-contain bg-center bg-no-repeat lg:flex-row lg:gap-16'}`
+        )}
       >
         <footer className="relative overflow-hidden rounded-4xl bg-[#414CAF] p-[30px]">
           <div
-            className={`mx-auto flex ${isMobile ? 'flex-col-reverse justify-between gap-10' : "mx-auto flex flex-col justify-between gap-10 bg-[url('/footer/PANDAA.svg')] bg-contain bg-center bg-no-repeat lg:flex-row lg:gap-16"}`}
+            className={cn(
+              `mx-auto flex ${isMobile ? 'flex-col-reverse justify-between gap-10' : "mx-auto flex flex-col justify-between gap-10 bg-[url('/footer/PANDAA.svg')] bg-contain bg-center bg-no-repeat lg:flex-row lg:gap-16"}`
+            )}
           >
             <div className="flex-1">
               <h2 className="mb-2 text-xl font-bold text-white">
@@ -57,7 +62,9 @@ const Footer = () => {
 
             <div className="flex-1">
               <h1
-                className={`${isMobile ? 'm-3 text-center text-3xl font-extrabold text-white' : 'hidden'}`}
+                className={cn(
+                  `${isMobile ? 'm-3 text-center text-3xl font-extrabold text-white' : 'hidden'}`
+                )}
               >
                 PANDAA
               </h1>
@@ -70,7 +77,7 @@ const Footer = () => {
                 <li>Khelaam</li>
               </ul>
 
-              <div className={`${isMobile ? 'hidden' : 'mt-6 flex gap-4'}`}>
+              <div className={cn(`${isMobile ? 'hidden' : 'mt-6 flex gap-4'}`)}>
                 <Image src={facebook} alt="Facebook" width={30} height={30} />
                 <Image src={linkedin} alt="LinkedIn" width={30} height={30} />
                 <Image src={instagram} alt="Instagram" width={30} height={30} />
