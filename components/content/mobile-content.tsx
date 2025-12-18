@@ -4,13 +4,19 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel'
-import Image from 'next/image'
-import image1 from '../../public/content banner/first-image.png'
+import Image, { StaticImageData } from 'next/image'
+
 import { useIsMobile } from '../hooks/use-is-mobile'
 import { cn } from '@/lib/utils'
 import paw2 from '../../public/background/paw.png'
+interface MobContentProps {
+  src: StaticImageData
+}
+interface MobContentImage {
+  image: MobContentProps[]
+}
 
-const MobileContent = () => {
+const MobileContent = ({ image }: MobContentImage) => {
   const isMobile = useIsMobile()
   return (
     <>
@@ -25,13 +31,13 @@ const MobileContent = () => {
         >
           <Carousel>
             <CarouselContent>
-              {Array.from({ length: 3 }).map((_, index) => (
+              {image.map((img, index) => (
                 <CarouselItem key={index}>
                   <div className="flex flex-col items-center">
                     <h1 className="relative top-12 w-[15rem] rounded-sm bg-[#FF2BD1] py-1 text-center text-white">
                       work with us for easy service
                     </h1>
-                    <Image src={image1} alt="First Image" className="w-full" />
+                    <Image src={img.src} alt="First Image" className="w-full" />
                   </div>
                 </CarouselItem>
               ))}

@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import paw from '../public/banner/paw-logo.png'
 
 import greenV from '../public/background/green-star.png'
@@ -11,8 +11,9 @@ import MobNav from './nav/mobile-nav'
 import DeskNav from './nav/desktop-nav'
 
 // import second from '../public/content banner/second-image.png'
-import mobScreen from '../public/banner/MobScreen.png'
-import homeScreen from '../public/banner/HomeScreen.png'
+import first from '../public/content banner/first-image.png'
+import second from '../public/content banner/second-image.png'
+import paw2 from '../public/background/paw.png'
 
 import '../app/globals.css'
 import { useIsMobile } from '../components/hooks/use-is-mobile'
@@ -20,6 +21,7 @@ import MobileContent from './content/mobile-content'
 
 // import Content from '../components/first'
 import DesktopContent from './content/desktop-content'
+import image1 from '../public/content banner/first-image.png'
 
 import {
   type CarouselApi,
@@ -30,8 +32,15 @@ import {
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { cn } from '@/lib/utils'
+interface Image {
+  src: StaticImageData
+}
+interface DeskImageProps {
+  images: Image[]
+  mobileImages: Image[]
+}
 
-export function Poster() {
+export function Poster({ images, mobileImages }: DeskImageProps) {
   const [api, setApi] = React.useState<CarouselApi>()
   const [current, setCurrent] = React.useState(0)
 
@@ -68,59 +77,60 @@ export function Poster() {
         >
           <Carousel setApi={setApi}>
             <CarouselContent>
-              {Array.from({ length: 5 }).map((_, index) => (
-                <CarouselItem key={index}>
-                  <div className="relative">
-                    {isMobile ? (
-                      <Image
-                        src={mobScreen}
-                        alt="Mobile Screen"
-                        className="w-full"
-                      />
-                    ) : (
-                      <Image
-                        className="z-30 w-full rounded-md bg-contain"
-                        src={homeScreen}
-                        alt="Poster Image"
-                        width={300}
-                        height={300}
-                        priority
-                      />
-                    )}
-                    {isMobile ? (
-                      <MobNav />
-                    ) : (
-                      <DeskNav
-                        className="absolute inset-x-0 top-0 flex items-center justify-between px-4 md:px-10"
-                        src={paw}
-                      />
-                    )}
-
-                    <div
-                      className={cn(
-                        `absolute bottom-4 flex w-full flex-col text-white ${isMobile ? 'absolute left-5 mb-8 gap-3' : 'text-center md:bottom-6 lg:bottom-10'}`
-                      )}
-                    >
-                      <div className="overflow-hidden">
-                        <h1
-                          className={cn(
-                            `slide-up font-extrabold ${isMobile ? 'text-5xl' : 'text-xl md:text-6xl lg:text-8xl'}`
-                          )}
-                        >
-                          Simple to use.
-                        </h1>
+              {isMobile
+                ? mobileImages.map((img, index) => (
+                    <CarouselItem key={index}>
+                      <div className="relative">
+                        <Image
+                          src={img.src}
+                          alt="Mobile Screen"
+                          className="w-full"
+                        />
                       </div>
-                      <h1
-                        className={cn(
-                          `slide-up font-extrabold ${isMobile ? 'text-5xl' : 'text-xl md:text-6xl lg:text-8xl'}`
-                        )}
-                      >
-                        Powerful to grow.
-                      </h1>
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
+                    </CarouselItem>
+                  ))
+                : images.map((img, index) => (
+                    <CarouselItem key={index}>
+                      <div className="relative">
+                        <Image
+                          src={img.src}
+                          alt="Mobile Screen"
+                          className="w-full"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+              {isMobile ? (
+                <MobNav />
+              ) : (
+                <DeskNav
+                  className="absolute inset-x-0 top-0 flex items-center justify-between px-4 md:px-10"
+                  src={paw}
+                />
+              )}
+
+              <div
+                className={cn(
+                  `absolute bottom-4 flex w-full flex-col text-white ${isMobile ? 'absolute left-5 mb-8 gap-3' : 'text-center md:bottom-6 lg:bottom-10'}`
+                )}
+              >
+                <div className="overflow-hidden">
+                  <h1
+                    className={cn(
+                      `slide-up font-extrabold ${isMobile ? 'text-5xl' : 'text-xl md:text-6xl lg:text-8xl'}`
+                    )}
+                  >
+                    Simple to use.
+                  </h1>
+                </div>
+                <h1
+                  className={cn(
+                    `slide-up font-extrabold ${isMobile ? 'text-5xl' : 'text-xl md:text-6xl lg:text-8xl'}`
+                  )}
+                >
+                  Powerful to grow.
+                </h1>
+              </div>
             </CarouselContent>
           </Carousel>
 
@@ -178,7 +188,13 @@ export function Poster() {
         </div>
       </section>
 
-      <section>{isMobile ? <MobileContent /> : <DesktopContent />}</section>
+      <section>
+        {isMobile ? (
+          <MobileContent image={[{ src: image1 }]} />
+        ) : (
+          <DesktopContent bgImage={paw2} image2={second} image1={first} />
+        )}
+      </section>
     </>
   )
 }

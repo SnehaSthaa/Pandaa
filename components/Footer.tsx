@@ -1,14 +1,17 @@
 'use client'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import '../app/globals.css'
-import facebook from '../public/footer/fb.svg'
-import instagram from '../public/footer/insta.svg'
-import linkedin from '../public/footer/linkedin.svg'
-import copyright from '../public/footer/copyright.png'
+
 import { useIsMobile } from '../components/hooks/use-is-mobile'
 import { cn } from '@/lib/utils'
 
-const Footer = () => {
+interface Props {
+  fb: StaticImageData
+  insta: StaticImageData
+  link: StaticImageData
+  copy: StaticImageData
+}
+const Footer = ({ fb, link, copy, insta }: Props) => {
   const isMobile = useIsMobile()
   return (
     <>
@@ -45,9 +48,9 @@ const Footer = () => {
                 </div>
               </div>
               <div className="mt-6 flex gap-4 md:hidden lg:hidden">
-                <Image src={facebook} alt="Facebook" width={30} height={30} />
-                <Image src={linkedin} alt="LinkedIn" width={30} height={30} />
-                <Image src={instagram} alt="Instagram" width={30} height={30} />
+                <Image src={fb} alt="Facebook" width={30} height={30} />
+                <Image src={link} alt="LinkedIn" width={30} height={30} />
+                <Image src={insta} alt="Instagram" width={30} height={30} />
               </div>
             </div>
 
@@ -78,9 +81,9 @@ const Footer = () => {
               </ul>
 
               <div className={cn(`${isMobile ? 'hidden' : 'mt-6 flex gap-4'}`)}>
-                <Image src={facebook} alt="Facebook" width={30} height={30} />
-                <Image src={linkedin} alt="LinkedIn" width={30} height={30} />
-                <Image src={instagram} alt="Instagram" width={30} height={30} />
+                <Image src={fb} alt="Facebook" width={30} height={30} />
+                <Image src={link} alt="LinkedIn" width={30} height={30} />
+                <Image src={insta} alt="Instagram" width={30} height={30} />
               </div>
             </div>
           </div>
@@ -92,7 +95,7 @@ const Footer = () => {
             </div>
 
             <div className="mt-3 flex items-center justify-center gap-2">
-              <Image src={copyright} alt="Copyright" width={12} height={12} />
+              <Image src={copy} alt="Copyright" width={12} height={12} />
               2025 All rights reserved to Pandaa Entertaintment
             </div>
           </div>
