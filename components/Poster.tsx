@@ -22,6 +22,9 @@ import MobileContent from './content/mobile-content'
 // import Content from '../components/first'
 import DesktopContent from './content/desktop-content'
 import image1 from '../public/content banner/first-image.png'
+import lines from '../public/featured/lines.png'
+import MobFeatured from './featured/mob-featured'
+import DeskFeatured from './featured/desk-featured'
 
 import {
   type CarouselApi,
@@ -38,9 +41,11 @@ interface Image {
 interface DeskImageProps {
   images: Image[]
   mobileImages: Image[]
+  bulb: StaticImageData
+  build: StaticImageData
 }
 
-export function Poster({ images, mobileImages }: DeskImageProps) {
+export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
   const [api, setApi] = React.useState<CarouselApi>()
   const [current, setCurrent] = React.useState(0)
 
@@ -194,6 +199,107 @@ export function Poster({ images, mobileImages }: DeskImageProps) {
         ) : (
           <DesktopContent bgImage={paw2} image2={second} image1={first} />
         )}
+        <div className="relative">
+          <div className={cn(` ${isMobile ? 'relative' : 'hidden'}`)}>
+            <Image
+              src={bulb}
+              alt="bulb-icon"
+              className={cn(`absolute -top-2 right-0 w-30`)}
+            />
+            <Image
+              src={build}
+              alt="building-icon"
+              className={cn(`absolute top-30 -left-3 w-30`)}
+            />
+          </div>
+          <div
+            className={cn(
+              ` ${isMobile ? 'container !px-[20px]' : 'container !px-[131px]'}`
+            )}
+          >
+            <div className={cn(`${isMobile ? 'hidden' : ''}`)}>
+              <Image
+                src={bulb}
+                alt="bulb-icon"
+                className={cn(
+                  `absolute -top-3 right-15 w-40 lg:-top-5 lg:right-42 lg:w-50`
+                )}
+              />
+              <Image
+                src={build}
+                alt="building-icon"
+                className={cn(
+                  `absolute bottom-1 left-20 w-40 lg:left-50 lg:w-55`
+                )}
+              />
+            </div>
+            <div
+              className={cn(
+                `my-10 text-center ${isMobile ? '' : 'leading-10 lg:leading-16'}`
+              )}
+            >
+              <span
+                className={cn(
+                  `font-bold ${isMobile ? 'text-2xl' : 'text-4xl lg:text-5xl xl:text-7xl'}`
+                )}
+              >
+                We turn big challenges into
+              </span>
+              <br />
+              <span
+                className={cn(
+                  `italic ${isMobile ? 'text-xl' : 'text-3xl lg:text-5xl xl:text-6xl'}`
+                )}
+              >
+                sleek, high-performance digital products{' '}
+              </span>
+              <br />
+              <span
+                className={cn(
+                  `font-bold ${isMobile ? 'text-2xl' : 'text-4xl lg:text-5xl xl:text-6xl'}`
+                )}
+              >
+                that deliver real results.
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="my-10">
+        <div className="container min-h-400 bg-[#3D3D3D] !px-[0px]">
+          <div className="relative flex flex-col">
+            <div
+              className={cn(
+                `flex justify-center text-white ${isMobile ? 'mt-3 gap-4' : 'mt-15 gap-7'}`
+              )}
+            >
+              <span
+                className={cn(
+                  `font-bold ${isMobile ? 'text-4xl' : 'text-6xl lg:text-8xl'}`
+                )}
+              >
+                Featured
+              </span>
+              <span
+                className={cn(
+                  ` ${isMobile ? 'text-4xl' : 'text-6xl lg:text-8xl'}`
+                )}
+              >
+                {' '}
+                works
+              </span>
+            </div>
+            <Image
+              src={lines}
+              alt="Underlines"
+              className={cn(
+                `absolute ${isMobile ? 'top-10 right-15' : 'top-25 right-40 w-70 lg:top-30 lg:right-76 lg:w-100'} `
+              )}
+            />
+          </div>
+
+          {isMobile ? <MobFeatured /> : <DeskFeatured />}
+        </div>
       </section>
     </>
   )

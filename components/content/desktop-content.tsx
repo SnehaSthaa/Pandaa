@@ -17,7 +17,7 @@ const desktopContent = ({ bgImage, image1, image2 }: Props) => {
           <Image src={bgImage} alt="Paw Background" />
         </div>
         <div className="absolute inset-x-0 flex justify-center">
-          <div className="relative bottom-0 container w-full !px-200">
+          <div className="!px-[80px]npm run relative bottom-0 container w-full decoration-violet-50">
             <Content
               className="top-25 left-10 z-1 pl-[73px] md:scale-65 lg:left-20 lg:scale-80 xl:left-30 xl:scale-90"
               alt="First card"
