@@ -12,12 +12,16 @@ interface Props {
 const desktopContent = ({ bgImage, image1, image2 }: Props) => {
   return (
     <>
-      <div className="relative min-h-160">
-        <div className="absolute top-[-4rem] h-[25rem] w-[25rem] xl:-top-20 xl:w-120">
-          <Image src={bgImage} alt="Paw Background" />
+      <div className="container min-h-100 lg:min-h-150">
+        <div className="relative">
+          <div className="overflow-x-hidden !px-0">
+            <div className="absolute top-[-5rem] -left-33 container h-[3rem] w-[30rem] lg:-top-[9rem] lg:-left-38 lg:w-150 xl:-left-48">
+              <Image src={bgImage} alt="Paw Background" />
+            </div>
+          </div>
         </div>
         <div className="absolute inset-x-0 flex justify-center">
-          <div className="!px-[80px]npm run relative bottom-0 container w-full decoration-violet-50">
+          <div className="relative bottom-0 container w-full !px-[80px]">
             <Content
               className="top-25 left-10 z-1 pl-[73px] md:scale-65 lg:left-20 lg:scale-80 xl:left-30 xl:scale-90"
               alt="First card"
@@ -38,7 +42,7 @@ const desktopContent = ({ bgImage, image1, image2 }: Props) => {
 
             <Content
               alt="Third Card"
-              className="top-12 left-110 z-1 md:scale-65 lg:left-148 lg:scale-80 xl:left-180 xl:scale-90"
+              className="top-12 left-110 z-1 md:scale-65 lg:left-145 lg:scale-80 xl:left-180 xl:scale-90"
               src={image1}
               toolTips={[
                 {
@@ -48,7 +52,7 @@ const desktopContent = ({ bgImage, image1, image2 }: Props) => {
                 {
                   message: 'work with us for easy service',
                   className:
-                    'bg-[#FF2BD1] lg:left-80 md:left-50 w-[15rem] top-3',
+                    'bg-[#FF2BD1] lg:left-60 md:left-45 w-[15rem] top-4',
                 },
               ]}
             />
@@ -56,7 +60,7 @@ const desktopContent = ({ bgImage, image1, image2 }: Props) => {
             <Content
               alt="Fourth Card"
               src={image2}
-              className="top-45 left-130 pr-[73px] md:scale-70 lg:top-[13rem] lg:left-[43rem] lg:scale-80 xl:top-[14rem] xl:left-[52rem] xl:scale-90"
+              className="top-53 left-130 md:scale-70 lg:top-[15rem] lg:left-[43rem] lg:scale-80 xl:top-[14rem] xl:left-[52rem] xl:scale-90"
             />
           </div>
         </div>

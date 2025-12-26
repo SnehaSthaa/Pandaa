@@ -23,16 +23,18 @@ const Footer = ({ fb, link, copy, insta }: Props) => {
         <footer className="relative overflow-hidden rounded-4xl bg-[#414CAF] p-[30px]">
           <div
             className={cn(
-              `mx-auto flex ${isMobile ? 'flex-col-reverse justify-between gap-10' : "mx-auto flex flex-col justify-between gap-10 bg-[url('/footer/PANDAA.svg')] bg-contain bg-center bg-no-repeat lg:flex-row lg:gap-16"}`
+              `mx-auto flex ${isMobile ? 'flex-col-reverse justify-between gap-10' : "mx-auto flex flex-col justify-between gap-10 bg-[url('/footer/PANDAA.svg')] bg-contain bg-bottom bg-no-repeat py-5 lg:flex-row lg:gap-16"}`
             )}
           >
             <div className="flex-1">
               <h2 className="mb-2 text-xl font-bold text-white">
                 Looking for job
               </h2>
-              <p className="text-white">Come join us at cubit.com.np</p>
+              <p className="font-sansation text-white">
+                Come join us at cubit.com.np
+              </p>
 
-              <div className="mt-6">
+              <div className="mt-15">
                 <h1 className="mb-2 text-2xl font-bold text-white">
                   Stay up To date
                 </h1>
@@ -56,7 +58,7 @@ const Footer = ({ fb, link, copy, insta }: Props) => {
 
             <div className="flex-1">
               <h1 className="mb-3 text-xl font-bold text-white">Company</h1>
-              <ul className="flex flex-col gap-2 text-white">
+              <ul className="font-sansation flex flex-col gap-2 text-white">
                 <li>Home</li>
                 <li>About Us</li>
                 <li>Contact Us</li>
@@ -74,7 +76,7 @@ const Footer = ({ fb, link, copy, insta }: Props) => {
               <h1 className="mb-3 text-xl font-bold text-white">
                 Our Projects
               </h1>
-              <ul className="flex flex-col gap-2 text-white">
+              <ul className="font-sansation flex flex-col gap-2 text-white">
                 <li>Pandaa</li>
                 <li>HRM</li>
                 <li>Khelaam</li>
@@ -88,13 +90,13 @@ const Footer = ({ fb, link, copy, insta }: Props) => {
             </div>
           </div>
 
-          <div className="mt-6 pt-5 text-center text-xs text-white">
+          <div className="font-sansation mt-6 pt-5 text-center text-xs text-white">
             <div className="flex flex-col items-center justify-center gap-4 lg:flex-row">
               <a>Terms and Condition</a>
               <a>Privacy Policy</a>
             </div>
 
-            <div className="mt-3 flex items-center justify-center gap-2">
+            <div className="font-sansation mt-3 flex items-center justify-center gap-2">
               <Image src={copy} alt="Copyright" width={12} height={12} />
               2025 All rights reserved to Pandaa Entertaintment
             </div>

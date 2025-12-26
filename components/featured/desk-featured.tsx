@@ -1,15 +1,15 @@
 import React from 'react'
 
-import DeskFeatured from '../featured-card'
+import DeskFeature from '../featured-card'
 import khelaam1 from '../../public/featured/khelaam.png'
 import Pandaa from '../../public/featured/Pandaa.png'
 import { motion } from 'motion/react'
 
-const deskFeatured = () => {
+const DeskFeatured = () => {
   return (
     <>
       <div className="relative flex justify-start">
-        <DeskFeatured
+        <DeskFeature
           title="Khelaam"
           description="Khelam brings the entire futsal experience into one smooth, rapid booking platform — find a venue, schedule a match, and get on the court without the chaos."
           img={khelaam1}
@@ -35,21 +35,21 @@ const deskFeatured = () => {
           />
 
           <motion.text
-            fontSize="24.5"
+            fontSize="23"
             fill="white"
             initial={{ rotate: [0, 0, 0, 0, 0] }}
             animate={{ rotate: [0, 30, 60, 90, 0] }}
             transition={{ duration: 3, repeat: Infinity, delay: 1 }}
           >
             <textPath href="#circlePath">
-              Work with us-Work with us-Work with us-
+              work with us-work with us-work with us-
             </textPath>
           </motion.text>
         </svg>
       </div>
 
       <div className="relative flex justify-end">
-        <DeskFeatured
+        <DeskFeature
           title="Pandaa"
           description="Khelam brings the entire futsal experience into one smooth, rapid booking platform — find a venue, schedule a match, and get on the court without the chaos."
           img={Pandaa}
@@ -65,4 +65,4 @@ const deskFeatured = () => {
   )
 }
 
-export default deskFeatured
+export default DeskFeatured

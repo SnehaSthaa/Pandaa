@@ -21,8 +21,10 @@ const MobileContent = ({ image }: MobContentImage) => {
   return (
     <>
       <div className="relative">
-        <div className="rotate-21.79 absolute -top-16 h-[10rem] w-[10rem]">
-          <Image src={paw2} alt="Paw Background" />
+        <div className="container overflow-x-hidden !px-0">
+          <div className="rotate-21.79 absolute -top-16 -left-7 h-[10rem] w-[10rem]">
+            <Image src={paw2} alt="Paw Background" />
+          </div>
         </div>
         <div
           className={cn(

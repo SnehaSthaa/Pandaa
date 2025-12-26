@@ -68,7 +68,7 @@ const FeaturedCard = ({
         </CardContent>
 
         <CardDescription
-          className={`text-black ${isMobile ? 'text-md leading-6' : 'text-lg leading-8'}`}
+          className={`font-sansation text-black ${isMobile ? 'text-md leading-6' : 'text-lg leading-9 lg:px-12 lg:text-xl'}`}
         >
           <div>{description}</div>
           <div className={cn(`${isMobile ? 'mt-7' : 'mt-10'}`, listClassName)}>
