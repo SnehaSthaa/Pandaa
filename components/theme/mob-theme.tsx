@@ -44,7 +44,7 @@ const mobTheme = () => {
         lineColor="bg-[#FF2BD1]"
       />
       <Theme
-        cardClass="bg-[#414BAE] mt-12 text-white  "
+        cardClass="bg-[#414BAE] z-10 mt-12 text-white  "
         listStar={starWhite}
         description={[
           { list: 'Branding' },

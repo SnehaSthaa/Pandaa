@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/card'
 import Image, { StaticImageData } from 'next/image'
 import { cn } from '@/lib/utils'
-import { useIsMobile } from './hooks/use-is-mobile'
+
 interface ListProps {
   list: string
 }
@@ -32,21 +32,13 @@ const ThemeCard = ({
   cardClass,
   listTextClass,
 }: ThemeProps) => {
-  const isMobile = useIsMobile()
   return (
     <>
       <Card className={cn(cardClass)}>
         <CardHeader>
           <CardTitle>
             <div className="relative flex">
-              <p
-                className={cn(
-                  `font-bold ${isMobile ? 'mb-4 text-2xl' : 'mb-5 md:text-2xl'}`
-                )}
-              >
-                {' '}
-                {title}
-              </p>
+              <p className={cn('mb-4 text-2xl font-bold')}> {title}</p>
 
               <div
                 className={cn('absolute -bottom-2 mx-2 h-1 w-7/8', lineColor)}
@@ -60,22 +52,14 @@ const ThemeCard = ({
           </CardTitle>
           <CardDescription className="font-sansation mt-5">
             <div>
-              <ul className={cn(`${isMobile ? 'space-y-2' : 'space-y-2'}`)}>
+              <ul className="space-y-2">
                 {description.map((list, index) => (
                   <li
-                    className={cn(
-                      `flex ${isMobile ? 'flex flex-row gap-2' : ''}`,
-                      listTextClass
-                    )}
+                    className={cn('flex flex-row gap-2 md:flex', listTextClass)}
                     key={index}
                   >
                     <Image src={listStar} alt="star" width={15} height={15} />
-                    <span
-                      className={cn(
-                        ` ${isMobile ? 'text-lg' : 'text-lg'}`,
-                        listTextClass
-                      )}
-                    >
+                    <span className={cn('text-lg', listTextClass)}>
                       {list.list}
                     </span>
                   </li>

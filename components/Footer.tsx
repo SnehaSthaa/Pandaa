@@ -15,22 +15,14 @@ const Footer = ({ fb, link, copy, insta }: Props) => {
   const isMobile = useIsMobile()
   return (
     <>
-      <div
-        className={cn(
-          `container ${isMobile ? '!m-0 !p-0' : 'bg-contain bg-center bg-no-repeat lg:flex-row lg:gap-16'}`
-        )}
-      >
-        <footer className="relative overflow-hidden rounded-4xl bg-[#414CAF] p-[30px]">
-          <div
-            className={cn(
-              `mx-auto flex ${isMobile ? 'flex-col-reverse justify-between gap-10' : "mx-auto flex flex-col justify-between gap-10 bg-[url('/footer/PANDAA.svg')] bg-contain bg-bottom bg-no-repeat py-5 lg:flex-row lg:gap-16"}`
-            )}
-          >
+      <div className="container !m-0 !p-0 md:!mx-auto md:!px-[30px] md:!py-[27px] lg:flex-row lg:gap-16">
+        <footer className="relative overflow-hidden rounded-4xl bg-[#414CAF] p-[30px] md:px-19">
+          <div className="mx-auto flex flex-col-reverse gap-15 bg-contain bg-bottom bg-no-repeat md:flex-col md:bg-[url('/footer/PANDAA.svg')] md:py-5 lg:flex-row lg:!justify-between xl:!gap-55">
             <div className="flex-1">
               <h2 className="mb-2 text-xl font-bold text-white">
                 Looking for job
               </h2>
-              <p className="font-sansation text-white">
+              <p className="font-sansation text-md text-white">
                 Come join us at cubit.com.np
               </p>
 
@@ -50,15 +42,15 @@ const Footer = ({ fb, link, copy, insta }: Props) => {
                 </div>
               </div>
               <div className="mt-6 flex gap-4 md:hidden lg:hidden">
-                <Image src={fb} alt="Facebook" width={30} height={30} />
-                <Image src={link} alt="LinkedIn" width={30} height={30} />
-                <Image src={insta} alt="Instagram" width={30} height={30} />
+                <Image src={fb} alt="Facebook" width={35} height={35} />
+                <Image src={link} alt="LinkedIn" width={35} height={35} />
+                <Image src={insta} alt="Instagram" width={35} height={35} />
               </div>
             </div>
 
             <div className="flex-1">
               <h1 className="mb-3 text-xl font-bold text-white">Company</h1>
-              <ul className="font-sansation flex flex-col gap-2 text-white">
+              <ul className="font-sansation flex flex-col gap-2 text-lg text-white">
                 <li>Home</li>
                 <li>About Us</li>
                 <li>Contact Us</li>
@@ -66,26 +58,22 @@ const Footer = ({ fb, link, copy, insta }: Props) => {
             </div>
 
             <div className="flex-1">
-              <h1
-                className={cn(
-                  `${isMobile ? 'm-3 text-center text-3xl font-extrabold text-white' : 'hidden'}`
-                )}
-              >
+              <h1 className="m-3 text-center text-3xl font-extrabold text-white md:hidden lg:hidden">
                 PANDAA
               </h1>
               <h1 className="mb-3 text-xl font-bold text-white">
                 Our Projects
               </h1>
-              <ul className="font-sansation flex flex-col gap-2 text-white">
+              <ul className="font-sansation flex flex-col gap-2 text-lg text-white">
                 <li>Pandaa</li>
                 <li>HRM</li>
                 <li>Khelaam</li>
               </ul>
 
               <div className={cn(`${isMobile ? 'hidden' : 'mt-6 flex gap-4'}`)}>
-                <Image src={fb} alt="Facebook" width={30} height={30} />
-                <Image src={link} alt="LinkedIn" width={30} height={30} />
-                <Image src={insta} alt="Instagram" width={30} height={30} />
+                <Image src={fb} alt="Facebook" width={35} height={35} />
+                <Image src={link} alt="LinkedIn" width={35} height={35} />
+                <Image src={insta} alt="Instagram" width={35} height={35} />
               </div>
             </div>
           </div>
