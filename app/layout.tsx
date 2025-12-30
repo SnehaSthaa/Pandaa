@@ -1,39 +1,19 @@
 import type { Metadata } from 'next'
-import { Epilogue } from 'next/font/google'
-import localFont from 'next/font/local'
+import { Epilogue, Sansation, Open_Sans } from 'next/font/google'
 
 const epilogue = Epilogue({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
 })
-const openSans = localFont({
-  src: [{ path: './fonts/OpenSans-Bold.ttf', weight: '700', style: 'bold' }],
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '700'],
   variable: '--font-open-sans',
 })
 
-const sansation = localFont({
-  src: [
-    {
-      path: './fonts/Sansation-Regular.ttf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Sansation-Italic.ttf',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: './fonts/Sansation-Bold.ttf',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Sansation-BoldItalic.ttf',
-      weight: '700',
-      style: 'italic',
-    },
-  ],
+const sansation = Sansation({
+  subsets: ['latin'],
+  weight: ['400', '700'],
   variable: '--font-sansation',
 })
 

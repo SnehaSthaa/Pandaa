@@ -326,7 +326,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
               <div className="flex items-center justify-center text-center">
                 <span className="text-3xl font-bold md:text-6xl lg:w-180">
                   Team members who makes us
-                  <span className="font-openSans !font-normal"> stronger</span>
+                  <span className="font-open-sans !font-normal"> stronger</span>
                   <Image
                     src={lines}
                     alt="Lines"
