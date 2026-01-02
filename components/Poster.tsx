@@ -9,12 +9,11 @@ import curveLine from '../public/aboutUs/curveLine.png'
 import arrow from '../public/aboutUs/arrow.svg'
 
 import greenV from '../public/background/green-star.png'
+import { motion, useScroll, useSpring, useTransform } from 'motion/react'
 
-// import first from '../public/content banner/first-image.png'
 import MobNav from './nav/mobile-nav'
 import DeskNav from './nav/desktop-nav'
 
-// import second from '../public/content banner/second-image.png'
 import first from '../public/content banner/first-image.png'
 import second from '../public/content banner/second-image.png'
 import paw2 from '../public/background/paw.png'
@@ -23,8 +22,6 @@ import '../app/globals.css'
 import { useIsMobile } from '../components/hooks/use-is-mobile'
 import MobileContent from './content/mobile-content'
 import ratingStar from '../public/aboutUs/Star 3.svg'
-
-// import Content from '../components/first'
 import DesktopContent from './content/desktop-content'
 import image1 from '../public/content banner/first-image.png'
 import lines from '../public/featured/lines.png'
@@ -52,8 +49,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel'
-import gsap from 'gsap'
-import { useGSAP } from '@gsap/react'
+
 import { cn } from '@/lib/utils'
 interface Image {
   src: StaticImageData
@@ -75,26 +71,25 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
   }
 
   const isMobile = useIsMobile()
-  const heading1 = React.useRef(null)
-  const heading2 = React.useRef(null)
-  useGSAP(() => {
-    gsap.from(heading1.current, {
-      xPercent: 700,
-      ease: 'power1.in',
-      delay: 0.5,
-      duration: 1,
-    })
-    gsap.from(heading2.current, {
-      xPercent: -700,
-      ease: 'power1.in',
-      delay: 0.5,
-      duration: 1,
-    })
+
+  const text =
+    'empowering businesses with fast, reliable, and future-driven IT solutions built for long-term success.'
+  const scrollRef = React.useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: scrollRef,
+    offset: ['start end', 'end start'],
+  })
+
+  const x1 = useTransform(scrollYProgress, [0, 1], ['50%', '-250%'])
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.92])
+  const x = useSpring(x1, {
+    stiffness: 70,
+    bounce: 1,
   })
 
   return (
     <>
-      <section className="relative overflow-x-hidden !px-0">
+      <section className="relative overflow-x-clip !px-0">
         <section className="relative">
           <div
             className={cn(
@@ -137,11 +132,11 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
 
                 <div className="absolute bottom-4 left-5 mb-8 flex w-full flex-col gap-3 text-center text-white md:bottom-6 lg:bottom-10">
                   <div className="overflow-hidden">
-                    <h1 className="slide-up text-5xl font-extrabold md:text-6xl lg:text-8xl">
+                    <h1 className="md:slide-up text-5xl font-extrabold md:text-6xl lg:text-8xl">
                       Simple to use.
                     </h1>
                   </div>
-                  <h1 className="slide-up text-5xl font-extrabold md:text-6xl lg:text-8xl">
+                  <h1 className="md:slide-up text-5xl font-extrabold md:text-6xl lg:text-8xl">
                     Powerful to grow.
                   </h1>
                 </div>
@@ -177,23 +172,67 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
           </div>
         </div>
 
-        <section className="z-10 container">
-          <div className="z-10 mt-16 text-center">
-            <h1
-              ref={heading1}
-              className="text-2xl font-bold text-black sm:mx-6 md:text-4xl lg:text-5xl"
-            >
-              empowering businesses with fast, reliable, and future-driven IT
-              solutions built for long-term success.
-            </h1>
-            <p
-              ref={heading2}
-              className="font-sansation mt-8 text-lg text-black sm:mx-8 md:text-lg lg:text-xl"
-            >
-              We build smart, scalable digital products that solve real problems
-              and provide <br /> actual outcomes. Simple to use, powerful
-              underneath — that’s the PANDAA <br /> approach.
-            </p>
+        <section
+          ref={scrollRef}
+          className={cn('relative', isMobile ? '' : 'h-[150vh]')}
+        >
+          <div
+            className={cn(
+              isMobile
+                ? 'container mt-16 flex flex-col justify-center !px-0'
+                : 'sticky top-1/5 mt-20 flex items-center'
+            )}
+          >
+            <div className="container overflow-x-hidden !px-0">
+              {isMobile ? (
+                <>
+                  <h1 className="px-6 text-center text-2xl font-bold text-black">
+                    empowering businesses with fast, reliable, and future-driven
+                    IT solutions built for long-term success.
+                  </h1>
+                  <p className="font-sansation mt-8 text-center text-lg text-black sm:mx-8 md:text-lg lg:text-xl">
+                    We build smart, scalable digital products that solve real
+                    problems and provide <br /> actual outcomes. Simple to use,
+                    powerful underneath — that’s the PANDAA <br /> approach.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <motion.h1
+                    style={{ x, scale }}
+                    viewport={{ once: true, amount: 0 }}
+                    className="text-6xl font-bold whitespace-nowrap text-black will-change-transform lg:text-7xl xl:text-8xl"
+                  >
+                    {text.split(' ').map((word, index) => (
+                      <motion.span
+                        key={index}
+                        initial={{ y: 80, opacity: 0, scale: 0.2 }}
+                        whileInView={{ y: 0, opacity: 1, scale: 1 }}
+                        transition={{
+                          type: 'spring',
+                          stiffness: 70,
+                          damping: 10,
+                          delay: index * 0.05,
+                        }}
+                        className="mr-3 inline-block"
+                      >
+                        {word}
+                      </motion.span>
+                    ))}
+                  </motion.h1>
+                  <motion.p
+                    initial={{ x: -700, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.2, ease: 'easeIn' }}
+                    className="font-sansation mt-8 text-center text-lg text-black sm:mx-8 md:text-lg lg:text-xl"
+                  >
+                    We build smart, scalable digital products that solve real
+                    problems and provide <br /> actual outcomes. Simple to use,
+                    powerful underneath — that’s the PANDAA <br /> approach.
+                  </motion.p>
+                </>
+              )}
+            </div>
           </div>
         </section>
 
@@ -217,35 +256,41 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
               />
             </div>
             <div className="relative container !px-[20px] md:!px-[131px]">
-              <div className={cn(`${isMobile ? 'hidden' : ''}`)}>
-                <Image
-                  src={bulb}
-                  alt="bulb-icon"
-                  className={cn(
-                    `absolute -top-19 right-16 w-40 lg:-top-23 lg:right-19 lg:w-50 xl:right-23`
-                  )}
-                />
-                <Image
-                  src={build}
-                  alt="building-icon"
-                  className={cn(
-                    `absolute -bottom-15 left-20 w-40 lg:left-20 lg:w-55 xl:left-45`
-                  )}
-                />
-              </div>
-              <div className="text-center leading-7 md:leading-12 lg:leading-18">
-                <span className="text-2xl font-bold md:text-4xl lg:text-5xl xl:text-7xl">
-                  We turn big challenges into
-                </span>
-                <br />
-                <span className="font-sansation text-xl italic md:text-3xl lg:text-4xl xl:text-6xl">
-                  sleek, high-performance digital products{' '}
-                </span>
-                <br />
-                <span className="text-2xl font-bold md:text-4xl lg:text-5xl xl:text-6xl">
-                  that deliver real results.
-                </span>
-              </div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1 }}
+              >
+                <div className={cn(`${isMobile ? 'hidden' : ''}`)}>
+                  <Image
+                    src={bulb}
+                    alt="bulb-icon"
+                    className={cn(
+                      `absolute -top-19 right-16 w-40 lg:-top-23 lg:right-19 lg:w-50 xl:right-23`
+                    )}
+                  />
+                  <Image
+                    src={build}
+                    alt="building-icon"
+                    className={cn(
+                      `absolute -bottom-15 left-20 w-40 lg:left-20 lg:w-55 xl:left-45`
+                    )}
+                  />
+                </div>
+                <div className="text-center leading-7 md:leading-12 lg:leading-18">
+                  <span className="text-2xl font-bold md:text-4xl lg:text-5xl xl:text-7xl">
+                    We turn big challenges into
+                  </span>
+                  <br />
+                  <span className="font-sansation text-xl italic md:text-3xl lg:text-4xl xl:text-6xl">
+                    sleek, high-performance digital products{' '}
+                  </span>
+                  <br />
+                  <span className="text-2xl font-bold md:text-4xl lg:text-5xl xl:text-6xl">
+                    that deliver real results.
+                  </span>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -270,7 +315,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
               src={lines}
               alt="Underlines"
               className={cn(
-                'absolute top-16 right-15 w-70 md:top-30 md:right-40 lg:top-36 lg:right-76 lg:w-100'
+                'absolute top-15 right-1/8 w-30 md:top-30 md:right-40 md:w-70 lg:top-36 lg:right-76 lg:w-100'
               )}
             />
           </div>

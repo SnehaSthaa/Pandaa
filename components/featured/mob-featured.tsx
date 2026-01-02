@@ -12,14 +12,14 @@ const mobFeatured = () => {
         description="Khelam brings the entire futsal experience into one smooth, rapid booking platform — find a venue, schedule a match, and get on the court without the chaos."
         img={khelaam1}
         buttonBg="bg-[#BC230F]"
-        titleButtonClass="text-[#BC230F] border border-[#BC230F] p-1  text-sm rounded-sm "
+        titleButtonClass="text-[#BC230F] border border-[#BC230F] p-1 text-xs  md:text-sm rounded-sm "
       />
       <MobFeatured
         title="Khelaam"
         description="Khelam brings the entire futsal experience into one smooth, rapid booking platform — find a venue, schedule a match, and get on the court without the chaos."
         img={Pandaa}
         buttonBg="bg-[#414BAE]"
-        titleButtonClass="text-[#414BAE] border text-sm  border-[#414BAE] p-1 rounded-sm "
+        titleButtonClass="text-[#414BAE] border text-xs p-1 border-[#414BAE]   rounded-sm "
       />
     </>
   )

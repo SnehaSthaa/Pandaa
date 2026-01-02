@@ -21,7 +21,7 @@ const mobTheme = () => {
           { list: 'Illustration' },
         ]}
         title="Design"
-        cardLogoClass="absolute -top-15 right-1/35"
+        cardLogoClass="absolute -top-15 left-2/3"
         imgLogo={logo1}
         listTextClass="text-white"
         lineColor="bg-[#F7F7F7]"
@@ -38,7 +38,7 @@ const mobTheme = () => {
           { list: 'Back-End' },
         ]}
         title="Technology"
-        cardLogoClass="absolute -top-15 right-1/35"
+        cardLogoClass="absolute -top-15 left-2/3"
         imgLogo={logo2}
         listTextClass="text-black"
         lineColor="bg-[#FF2BD1]"
@@ -55,7 +55,7 @@ const mobTheme = () => {
           { list: 'S.E.O' },
         ]}
         title="Marketing"
-        cardLogoClass="absolute -top-15 right-1/35"
+        cardLogoClass="absolute -top-15 left-2/3"
         imgLogo={logo3}
         listTextClass="text-white"
         lineColor="bg-[#F7F7F7]"
