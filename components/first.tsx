@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import React from 'react'
 
 interface Tooltip {
@@ -9,21 +9,22 @@ interface Tooltip {
 
 interface Props {
   alt: string
-  src: StaticImageData
+  src: string
   className?: string
   toolTips?: Tooltip[]
 }
 
-const postr = ({ className, alt, src, toolTips }: Props) => {
+const Post = ({ className, alt, src, toolTips }: Props) => {
   return (
     <div className={cn(className, 'absolute')}>
-      <div id="test" className="relative">
-        <Image alt={alt} src={src} />
+      <div className="relative">
+        <Image alt={alt} src={src} height={330} width={400} />
+
         {toolTips?.map((tooltip, index) => (
           <p
             key={index}
             className={cn(
-              'absolute rounded-3xl text-center text-sm text-white',
+              'absolute rounded-3xl text-center text-xs text-white',
               tooltip.className
             )}
           >
@@ -35,4 +36,4 @@ const postr = ({ className, alt, src, toolTips }: Props) => {
   )
 }
 
-export default postr
+export default Post

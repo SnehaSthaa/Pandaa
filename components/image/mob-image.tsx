@@ -1,76 +1,44 @@
 import React from 'react'
+import Image from 'next/image'
 
-import Image, { StaticImageData } from 'next/image'
 interface ImageArr {
-  img: StaticImageData
+  img: string
+  name?: string
+  role?: string
 }
+
 interface ImageProps {
   image: ImageArr[]
 }
 
 const MobImage = ({ image }: ImageProps) => {
   return (
-    <>
-      <div className="mt-10 flex flex-col">
-        <div className="flex flex-row gap-7">
-          <div className="flex flex-col gap-5">
-            {' '}
+    <div className="font-sansation mt-10">
+      <div className="grid grid-cols-2 gap-4">
+        {image.map((item, index) => (
+          <div key={index} className="flex flex-col gap-5">
             <Image
-              src={image[0].img}
-              alt="Girl Image"
-              className="aspect-[45/54] rounded-xl"
+              src={item.img}
+              alt={item.name ?? 'Team member'}
+              width={300}
+              height={250}
+              className="aspect-[46/55] rounded-xl"
             />
-            <div className="flex flex-col gap-3 text-center text-xl text-black">
-              <p>kristy ABC hjsducs</p>
-              <p>CTO</p>
+
+            <div className="flex flex-col items-center justify-center gap-2 text-center text-lg text-black">
+              <p className="font-medium">{item.name}</p>
+              <p>{item.role ?? 'CTO'}</p>
             </div>
           </div>
-          <div className="flex flex-col gap-5">
-            {' '}
-            <Image
-              src={image[1].img}
-              alt="Girl Image"
-              className="aspect-[45/54] rounded-xl"
-            />
-            <div className="flex flex-col gap-3 text-center text-xl text-black">
-              <p>kristy ABC </p>
-              <p>CTO</p>
-            </div>
-          </div>
-        </div>
-        <div className="mt-10 flex flex-row gap-7">
-          <div className="flex flex-col gap-5">
-            {' '}
-            <Image
-              src={image[2].img}
-              alt="Girl Image"
-              className="aspect-[45/54] rounded-xl"
-            />
-            <div className="flex flex-col gap-3 text-center text-xl text-black">
-              <p>kristy ABC hjsducs</p>
-              <p>CTO</p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-5">
-            {' '}
-            <Image
-              src={image[3].img}
-              alt="Girl Image"
-              className="aspect-[45/54] rounded-xl"
-            />
-            <div className="flex flex-col gap-3 text-center text-xl text-black">
-              <p>kristy ABC </p>
-              <p>CTO</p>
-            </div>
-          </div>
-        </div>
-        <div className="mt-5 flex justify-center">
-          <button className="items-center rounded-lg bg-[#414BAE] p-2 text-white">
-            meet everyone
-          </button>
-        </div>
+        ))}
       </div>
-    </>
+
+      <div className="mt-10 flex justify-center">
+        <button className="rounded-lg bg-[#414BAE] px-4 py-2 text-white">
+          meet everyone
+        </button>
+      </div>
+    </div>
   )
 }
 

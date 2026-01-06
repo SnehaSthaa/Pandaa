@@ -8,14 +8,14 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { StaticImageData } from 'next/image'
 import { cn } from '@/lib/utils'
 import { useIsMobile } from './hooks/use-is-mobile'
 interface FeaturedProps {
   title: string
   description: string
-  img: StaticImageData
+  img: string
   listClassName?: string
+  listItems?: string[]
   buttonBg: string
   titleButtonClass: string
   cardImageClass?: string
@@ -31,6 +31,7 @@ const FeaturedCard = ({
   message,
   buttonBg,
   cardImageClass,
+  listItems,
   listClassName,
   messageClass,
 }: FeaturedProps) => {
@@ -38,7 +39,7 @@ const FeaturedCard = ({
 
   return (
     <div className="m-5 md:m-10">
-      <Card className="px-5 py-5 md:min-h-162 md:w-140 md:px-8 lg:w-200">
+      <Card className="min-h-200 rounded-3xl px-5 py-5 md:w-140 md:px-8 lg:w-200">
         <CardHeader className="!m-0 !p-0 md:!mt-6 md:!mb-0">
           <CardTitle className="flex flex-row justify-between">
             <div className="text-2xl font-bold md:text-3xl lg:text-6xl">
@@ -53,7 +54,13 @@ const FeaturedCard = ({
 
         <CardContent className="!m-0 !p-0">
           <div className="flex justify-center">
-            <Image src={img} alt="Image1" className={cn(cardImageClass)} />
+            <Image
+              src={img}
+              alt="Image1"
+              width={340}
+              height={540}
+              className={cn(cardImageClass)}
+            />
           </div>
         </CardContent>
 
@@ -62,10 +69,9 @@ const FeaturedCard = ({
           <div className={cn('mt-7 md:!mt-12', listClassName)}>
             <h1 className="font-medium md:text-2xl">What can our app do?</h1>
             <ul className="md:text-md mt-2 list-disc pl-5">
-              <li>Instant venue booking</li>
-              <li>Unified management dashboard</li>
-              <li>Secure digital payments</li>
-              <li>Real-time notifications</li>
+              {listItems?.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
           </div>
         </CardDescription>

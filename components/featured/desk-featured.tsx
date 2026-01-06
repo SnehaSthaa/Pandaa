@@ -1,8 +1,7 @@
 import React from 'react'
 
 import DeskFeature from '../featured-card'
-import khelaam1 from '../../public/featured/khelaam.png'
-import Pandaa from '../../public/featured/Pandaa.png'
+
 import { motion } from 'motion/react'
 
 const DeskFeatured = () => {
@@ -12,12 +11,18 @@ const DeskFeatured = () => {
         <DeskFeature
           title="Khelaam"
           description="Khelam brings the entire futsal experience into one smooth, rapid booking platform — find a venue, schedule a match, and get on the court without the chaos."
-          img={khelaam1}
+          img="/featured/Khelaam.png"
           buttonBg="bg-[#BC230F] absolute left-23 "
           titleButtonClass="text-[#BC230F] text-sm border border-[#BC230F] px-5 rounded-full lg:text-md lg:px-8   "
-          cardImageClass="absolute left-80 w-120 bottom-0 lg:left-100"
+          cardImageClass="absolute left-80 w-120 mb-10 bottom-0 lg:left-120"
           message='futsal,booked in a "blink".'
           messageClass="bg-[#414BAE]  absolute px-3 py-1 xl:right-1/7 top-1/5 right-1  xl:px-5 py-2 lg:px-2 "
+          listItems={[
+            'Instant venue booking',
+            'Unified management dashboard',
+            'Secure digital payments',
+            'Real-time notifications',
+          ]}
         />
       </div>
       <div className="relative left-3/4 mb-3 h-[194px] w-[194px] xl:left-4/5">
@@ -52,13 +57,19 @@ const DeskFeatured = () => {
         <DeskFeature
           title="Pandaa"
           description="Khelam brings the entire futsal experience into one smooth, rapid booking platform — find a venue, schedule a match, and get on the court without the chaos."
-          img={Pandaa}
+          img="/featured/Pandaa.png"
           buttonBg="bg-[#414BAE] absolute lg:right-110 right-80 "
           titleButtonClass="text-[#414BAE] text-sm lg:text-md  border border-[#414BAE]  px-5 lg:px-8  rounded-full py-0 "
-          cardImageClass="absolute lg:left-50 xl:left-130 left-30 bottom-5"
+          cardImageClass="absolute lg:left-50 xl:left-[35%] left-30 bottom-5"
           listClassName="ml-45"
           message="your ticket to “everything”."
           messageClass="bg-[#00A06D] absolute px-3 py-1 xl:left-1/7 xl:px-5 lg:py-2 top-1/5 left-1 lg:left-0 lg:px-2 "
+          listItems={[
+            'Instant venue booking',
+            'Unified management dashboard',
+            'Secure digital payments',
+            'Real-time notifications',
+          ]}
         />
       </div>
     </>

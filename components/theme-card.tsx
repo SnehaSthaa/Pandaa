@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 interface ListProps {
@@ -14,9 +14,9 @@ interface ListProps {
 interface ThemeProps {
   title: string
   description: ListProps[]
-  imgLogo: StaticImageData
+  imgLogo: string
   cardLogoClass: string
-  listStar: StaticImageData
+  listStar: string
   cardClass: string
   listTextClass: string
   lineColor: string
@@ -43,10 +43,13 @@ const ThemeCard = ({
               <div
                 className={cn('absolute -bottom-2 mx-2 h-1 w-7/8', lineColor)}
               ></div>
+
               <Image
                 className={cn(cardLogoClass)}
                 src={imgLogo}
                 alt="CardLogo"
+                height={100}
+                width={100}
               />
             </div>
           </CardTitle>

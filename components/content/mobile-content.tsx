@@ -4,13 +4,13 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 
 import { useIsMobile } from '../hooks/use-is-mobile'
 import { cn } from '@/lib/utils'
 import paw2 from '../../public/background/paw.png'
 interface MobContentProps {
-  src: StaticImageData
+  src: string
 }
 interface MobContentImage {
   image: MobContentProps[]
@@ -23,7 +23,7 @@ const MobileContent = ({ image }: MobContentImage) => {
       <div className="relative">
         <div className="container overflow-x-hidden !px-0">
           <div className="rotate-21.79 absolute -top-16 -left-7 h-[10rem] w-[10rem]">
-            <Image src={paw2} alt="Paw Background" />
+            <Image src={paw2} alt="Paw Background" fill />
           </div>
         </div>
         <div
@@ -36,10 +36,13 @@ const MobileContent = ({ image }: MobContentImage) => {
               {image.map((img, index) => (
                 <CarouselItem key={index}>
                   <div className="flex flex-col items-center">
-                    <h1 className="relative top-12 w-[15rem] rounded-sm bg-[#FF2BD1] py-1 text-center text-white">
+                    <h1 className="relative top-12 z-10 w-[15rem] rounded-sm bg-[#FF2BD1] py-1 text-center text-white">
                       work with us for easy service
                     </h1>
-                    <Image src={img.src} alt="First Image" className="w-full" />
+
+                    <div className="relative h-[420px] w-full">
+                      <Image src={img.src} alt="First Image" fill />
+                    </div>
                   </div>
                 </CarouselItem>
               ))}

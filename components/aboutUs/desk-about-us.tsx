@@ -1,6 +1,6 @@
 'use client'
 import { Card, CardContent } from '@/components/ui/card'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
 
@@ -10,9 +10,9 @@ interface DescriptionProps {
 }
 
 interface DeskProps {
-  star: StaticImageData
+  star: string
   description: DescriptionProps[]
-  arrow: StaticImageData
+  arrow: string
 }
 
 const DeskAboutUs = ({ star, arrow, description }: DeskProps) => {

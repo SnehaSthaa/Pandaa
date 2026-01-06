@@ -1,5 +1,5 @@
 import React from 'react'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import {
   Carousel,
   CarouselContent,
@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils'
 import { Card, CardContent } from '../ui/card'
 interface MobProps {
   carouselClass: string
-  star: StaticImageData
+  star: string
   description: string[]
 }
 
@@ -27,7 +27,13 @@ const AboutUs = ({ carouselClass, description, star }: MobProps) => {
                   <CardContent>
                     <div className="flex flex-row items-center justify-center gap-3">
                       {Array.from({ length: 4 }).map((_, index) => (
-                        <Image src={star} key={index} alt="Stars" />
+                        <Image
+                          src={star}
+                          key={index}
+                          alt="Stars"
+                          width={20}
+                          height={20}
+                        />
                       ))}
                     </div>
                     <hr className="m-5 bg-[#272727]" />

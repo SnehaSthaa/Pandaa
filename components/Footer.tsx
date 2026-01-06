@@ -1,17 +1,17 @@
 'use client'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import '../app/globals.css'
-
 import { useIsMobile } from '../components/hooks/use-is-mobile'
 import { cn } from '@/lib/utils'
-
-interface Props {
-  fb: StaticImageData
-  insta: StaticImageData
-  link: StaticImageData
-  copy: StaticImageData
+import { footer } from '../app/mock-data/footer'
+interface IconProps {
+  img: string
 }
-const Footer = ({ fb, link, copy, insta }: Props) => {
+interface Props {
+  icons: IconProps[]
+  copy: string
+}
+const Footer = ({ icons, copy }: Props) => {
   const isMobile = useIsMobile()
   return (
     <>
@@ -42,18 +42,24 @@ const Footer = ({ fb, link, copy, insta }: Props) => {
                 </div>
               </div>
               <div className="mt-6 flex gap-4 md:hidden lg:hidden">
-                <Image src={fb} alt="Facebook" width={35} height={35} />
-                <Image src={link} alt="LinkedIn" width={35} height={35} />
-                <Image src={insta} alt="Instagram" width={35} height={35} />
+                {icons.map((item, index) => (
+                  <Image
+                    key={index}
+                    src={item.img}
+                    alt="Facebook"
+                    width={35}
+                    height={35}
+                  />
+                ))}
               </div>
             </div>
 
             <div className="flex-1">
               <h1 className="mb-3 text-xl font-bold text-white">Company</h1>
               <ul className="font-sansation flex flex-col gap-2 text-lg text-white">
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Contact Us</li>
+                {footer.company.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </div>
 
@@ -65,23 +71,30 @@ const Footer = ({ fb, link, copy, insta }: Props) => {
                 Our Projects
               </h1>
               <ul className="font-sansation flex flex-col gap-2 text-lg text-white">
-                <li>Pandaa</li>
-                <li>HRM</li>
-                <li>Khelaam</li>
+                {footer.projects.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
               <div className={cn(`${isMobile ? 'hidden' : 'mt-6 flex gap-4'}`)}>
-                <Image src={fb} alt="Facebook" width={35} height={35} />
-                <Image src={link} alt="LinkedIn" width={35} height={35} />
-                <Image src={insta} alt="Instagram" width={35} height={35} />
+                {icons.map((item, index) => (
+                  <Image
+                    key={index}
+                    src={item.img}
+                    alt="icons"
+                    width={35}
+                    height={35}
+                  />
+                ))}
               </div>
             </div>
           </div>
 
           <div className="font-sansation mt-6 pt-5 text-center text-xs text-white">
             <div className="flex flex-col items-center justify-center gap-4 lg:flex-row">
-              <a>Terms and Condition</a>
-              <a>Privacy Policy</a>
+              {footer.privacy.map((item, index) => (
+                <a key={index}>{item}</a>
+              ))}
             </div>
 
             <div className="font-sansation mt-3 flex items-center justify-center gap-2">

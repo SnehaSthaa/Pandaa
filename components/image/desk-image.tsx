@@ -1,9 +1,9 @@
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import React, { useState } from 'react'
 import { motion, useAnimation } from 'motion/react'
 
 interface ImageArr {
-  img: StaticImageData
+  img: string
 }
 interface DeskImageProps {
   image: ImageArr[]
@@ -28,11 +28,13 @@ const DeskImage = ({ image }: DeskImageProps) => {
   return (
     <>
       <div className="flex flex-row gap-4 lg:justify-between">
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-3">
           <div className='[mask-image:url("/image/subtract1.png")] [mask-size:100%_100%] [mask-position:center_center] [mask-repeat:no-repeat]'>
             <Image
               src={image[0].img}
               alt="Image first"
+              width={260}
+              height={0}
               className="aspect-[64/80] object-cover"
             />
           </div>
@@ -40,14 +42,18 @@ const DeskImage = ({ image }: DeskImageProps) => {
             src={image[1].img}
             alt="Image Second"
             className="aspect-[5/3] rounded-2xl object-cover"
+            width={260}
+            height={0}
           />
         </div>
-        <div className="flex items-center">
+        <div className="mt-12 flex items-center">
           <div className='[mask-image:url("/image/subtract2.png")] [mask-size:100%_100%] [mask-position:center_center] [mask-repeat:no-repeat]'>
             <Image
               src={image[2].img}
               alt="image Third"
-              className="aspect-[64/130] rounded-b-2xl object-cover"
+              className="aspect-[77/130] rounded-b-2xl"
+              width={230}
+              height={0}
             />
           </div>
         </div>
@@ -64,6 +70,8 @@ const DeskImage = ({ image }: DeskImageProps) => {
                 src={image[4].img}
                 alt="image Fourth"
                 className="aspect-[64/50] rounded-3xl object-cover"
+                width={260}
+                height={420}
               />
               <motion.div
                 initial={{ opacity: 0 }}
@@ -83,12 +91,14 @@ const DeskImage = ({ image }: DeskImageProps) => {
             meet everyone
           </button>
         </div>
-        <div className="flex items-center">
+        <div className="mt-12 flex items-center">
           <div className='[mask-image:url("/image/subtract3.png")] [mask-size:100%_100%] [mask-position:center_center] [mask-repeat:no-repeat]'>
             <Image
               src={image[3].img}
               alt="image Third"
-              className="aspect-[64/130] rounded-b-2xl object-bottom"
+              className="aspect-[77/130] rounded-b-2xl"
+              width={230}
+              height={0}
             />
           </div>
         </div>
@@ -98,12 +108,16 @@ const DeskImage = ({ image }: DeskImageProps) => {
               src={image[5].img}
               alt="Image first"
               className="aspect-[64/80] object-cover"
+              width={260}
+              height={0}
             />
           </div>
           <Image
             src={image[6].img}
             alt="Image Second"
             className="aspect-[5/3] rounded-2xl object-cover"
+            width={260}
+            height={0}
           />
         </div>
       </div>

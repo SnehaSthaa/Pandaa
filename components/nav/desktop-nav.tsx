@@ -1,8 +1,8 @@
 import { cn } from '@/lib/utils'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import React from 'react'
 interface DesktopProp {
-  src: StaticImageData
+  src: string
   className?: string
 }
 const desktopNAv = ({ src, className }: DesktopProp) => {
@@ -10,12 +10,10 @@ const desktopNAv = ({ src, className }: DesktopProp) => {
     <>
       <div className={cn(className)}>
         <div className="relative inline-block">
-          <Image
-            src={src}
-            alt="Paw logo"
-            className="relative w-10 md:w-20 lg:w-30"
-          />
-          <p className="absolute top-5 left-6 text-[10px] font-bold text-white md:top-12 md:left-10 lg:top-17 lg:left-15 lg:text-2xl">
+          <div className="relative z-20 h-10 w-10 md:h-20 md:w-20 lg:h-30 lg:w-30">
+            <Image src={src} alt="Paw logo" fill />
+          </div>
+          <p className="absolute top-0 left-6 text-[10px] font-bold text-white md:top-12 md:left-10 lg:top-17 lg:left-15 lg:text-2xl">
             Work
           </p>
         </div>

@@ -1,48 +1,23 @@
 'use client'
 
 import * as React from 'react'
-import Image, { StaticImageData } from 'next/image'
-import paw from '../public/banner/paw-logo.png'
+import Image from 'next/image'
 import MobAboutUs from './aboutUs/mob-about-us'
 import DeskAboutUs from './aboutUs/desk-about-us'
-import curveLine from '../public/aboutUs/curveLine.png'
-import arrow from '../public/aboutUs/arrow.svg'
-
-import greenV from '../public/background/green-star.png'
 import { motion, useScroll, useSpring, useTransform } from 'motion/react'
-
 import MobNav from './nav/mobile-nav'
 import DeskNav from './nav/desktop-nav'
-
-import first from '../public/content banner/first-image.png'
-import second from '../public/content banner/second-image.png'
-import paw2 from '../public/background/paw.png'
-
 import '../app/globals.css'
 import { useIsMobile } from '../components/hooks/use-is-mobile'
 import MobileContent from './content/mobile-content'
-import ratingStar from '../public/aboutUs/Star 3.svg'
 import DesktopContent from './content/desktop-content'
-import image1 from '../public/content banner/first-image.png'
-import lines from '../public/featured/lines.png'
 import MobFeatured from './featured/mob-featured'
 import DeskFeatured from './featured/desk-featured'
 import DeskTheme from './theme/desk-theme'
 import MobTheme from './theme/mob-theme'
-import ellipse from '../public/theme/ellipse.png'
-import pawLogo from '../public/theme/pawlogo.svg'
-import mobPink from '../public/background/mobPink.png'
 import MobImage from './image/mob-image'
 import DeskImage from './image/desk-image'
-import img1 from '../public/image/girl.jpg'
-import img2 from '../public/image/Business.png'
-import img3 from '../public/image/Man sitting on a roof.png'
-import img4 from '../public/image/Calm and confident (1).png'
-import deskPink from '../public/background/pink.png'
-import img5 from '../public/image/middleimg.png'
-import img6 from '../public/image/red-tshirt-girl.jpg'
-import img7 from '../public/image/girl-smiling.png'
-import fullpaw from '../public/background/paw2full.png'
+
 import {
   type CarouselApi,
   Carousel,
@@ -52,13 +27,13 @@ import {
 
 import { cn } from '@/lib/utils'
 interface Image {
-  src: StaticImageData
+  src: string
 }
 interface DeskImageProps {
   images: Image[]
   mobileImages: Image[]
-  bulb: StaticImageData
-  build: StaticImageData
+  bulb: string
+  build: string
 }
 
 export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
@@ -77,7 +52,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
   const scrollRef = React.useRef(null)
   const { scrollYProgress } = useScroll({
     target: scrollRef,
-    offset: ['start end', 'end start'],
+    offset: ['start end', 'end end'],
   })
 
   const x1 = useTransform(scrollYProgress, [0, 1], ['50%', '-250%'])
@@ -101,23 +76,15 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                 {isMobile
                   ? mobileImages.map((img, index) => (
                       <CarouselItem key={index}>
-                        <div className="relative">
-                          <Image
-                            src={img.src}
-                            alt="Mobile Screen"
-                            className="w-full"
-                          />
+                        <div className="relative h-[900px] w-full">
+                          <Image src={img.src} alt="Mobile Screen" fill />
                         </div>
                       </CarouselItem>
                     ))
                   : images.map((img, index) => (
                       <CarouselItem key={index}>
-                        <div className="relative">
-                          <Image
-                            src={img.src}
-                            alt="Mobile Screen"
-                            className="w-full"
-                          />
+                        <div className="relative h-[1000px] w-full">
+                          <Image src={img.src} alt="Mobile Screen" fill />
                         </div>
                       </CarouselItem>
                     ))}
@@ -125,8 +92,8 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                   <MobNav />
                 ) : (
                   <DeskNav
-                    className="absolute inset-x-0 top-0 flex items-center justify-between px-4 md:px-10"
-                    src={paw}
+                    className="absolute inset-x-0 flex items-center justify-between px-4 md:px-10"
+                    src="/banner/paw-logo.png"
                   />
                 )}
 
@@ -168,7 +135,13 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
               `absolute ${isMobile ? '-top-90 -right-60' : '-top-106 -right-[6%]'}`
             )}
           >
-            <Image src={greenV} alt="decorative green shape" priority />
+            <Image
+              src="/background/green-star.png"
+              alt="decorative green shape"
+              height={500}
+              width={600}
+              priority
+            />
           </div>
         </div>
 
@@ -183,7 +156,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                 : 'sticky top-1/5 mt-20 flex items-center'
             )}
           >
-            <div className="container overflow-x-hidden !px-0">
+            <div className="container overflow-visible !overflow-x-clip !px-0">
               {isMobile ? (
                 <>
                   <h1 className="px-6 text-center text-2xl font-bold text-black">
@@ -201,18 +174,18 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                   <motion.h1
                     style={{ x, scale }}
                     viewport={{ once: true, amount: 0 }}
-                    className="text-6xl font-bold whitespace-nowrap text-black will-change-transform lg:text-7xl xl:text-8xl"
+                    className="text-6xl font-bold tracking-wider whitespace-nowrap text-black will-change-transform lg:text-7xl xl:text-8xl"
                   >
                     {text.split(' ').map((word, index) => (
                       <motion.span
                         key={index}
-                        initial={{ y: 80, opacity: 0, scale: 0.2 }}
-                        whileInView={{ y: 0, opacity: 1, scale: 1 }}
+                        initial={{ y: -100 }}
+                        whileInView={{ y: 0 }}
                         transition={{
                           type: 'spring',
                           stiffness: 70,
                           damping: 10,
-                          delay: index * 0.05,
+                          delay: index * 0.06,
                         }}
                         className="mr-3 inline-block"
                       >
@@ -238,9 +211,15 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
 
         <section>
           {isMobile ? (
-            <MobileContent image={[{ src: image1 }]} />
+            <MobileContent
+              image={[{ src: '/content-banner/first-image.png' }]}
+            />
           ) : (
-            <DesktopContent bgImage={paw2} image2={second} image1={first} />
+            <DesktopContent
+              bgImage="/background/paw.png"
+              image2="/content-banner/second-image.png"
+              image1="/content-banner/first-image.png"
+            />
           )}
           <div className="py-30">
             <div className={cn(` ${isMobile ? 'relative' : 'hidden'}`)}>
@@ -248,11 +227,15 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                 src={bulb}
                 alt="bulb-icon"
                 className={cn(`absolute -top-19 right-3 w-30`)}
+                width={20}
+                height={20}
               />
               <Image
                 src={build}
                 alt="building-icon"
                 className={cn(`absolute top-13 -left-3 w-30`)}
+                width={20}
+                height={20}
               />
             </div>
             <div className="relative container !px-[20px] md:!px-[131px]">
@@ -268,6 +251,8 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                     className={cn(
                       `absolute -top-19 right-16 w-40 lg:-top-23 lg:right-19 lg:w-50 xl:right-23`
                     )}
+                    width={20}
+                    height={20}
                   />
                   <Image
                     src={build}
@@ -275,6 +260,8 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                     className={cn(
                       `absolute -bottom-15 left-20 w-40 lg:left-20 lg:w-55 xl:left-45`
                     )}
+                    width={20}
+                    height={20}
                   />
                 </div>
                 <div className="text-center leading-7 md:leading-12 lg:leading-18">
@@ -297,7 +284,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
       </section>
 
       <section className="my-10">
-        <div className="container min-h-400 bg-[#3D3D3D] !px-[0px] py-5">
+        <div className="container min-h-400 bg-[#272727] !px-[0px] py-5">
           <div className="relative flex flex-col">
             <div className="mt-3 flex justify-center gap-4 py-5 text-white md:mt-15 md:gap-7">
               <span className="text-4xl font-bold md:text-6xl lg:text-8xl">
@@ -311,13 +298,13 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                 works
               </span>
             </div>
-            <Image
-              src={lines}
-              alt="Underlines"
+            <div
               className={cn(
-                'absolute top-15 right-1/8 w-30 md:top-30 md:right-40 md:w-70 lg:top-36 lg:right-76 lg:w-100'
+                'absolute top-15 right-1/8 h-10 w-30 md:top-30 md:right-40 md:w-70 lg:top-36 lg:right-1/10 lg:w-100 xl:right-1/5'
               )}
-            />
+            >
+              <Image src="/featured/lines.png" alt="Underlines" fill />
+            </div>
           </div>
 
           {isMobile ? <MobFeatured /> : <DeskFeatured />}
@@ -333,11 +320,18 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
             >
               <div className="relative flex">
                 <Image
-                  src={pawLogo}
+                  src="/theme/pawlogo.svg"
                   alt="Theme pawLogo"
                   className="absolute bottom-1/2 w-13"
+                  height={5}
+                  width={10}
                 />
-                <Image src={ellipse} alt="Ellipse Theme" />
+                <Image
+                  src="/theme/ellipse.png"
+                  alt="Ellipse Theme"
+                  width={180}
+                  height={100}
+                />
                 <p className="font-sansation absolute top-1/4 left-1/4 text-3xl italic lg:top-1/5 lg:left-1/5 lg:text-4xl">
                   call us
                 </p>
@@ -355,15 +349,19 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
           <div className="relative z-0 h-full w-full">
             {isMobile ? (
               <Image
-                src={mobPink}
+                src="/background/mobPink.png"
                 alt="Pink Vector"
                 className="absolute -top-8 right-0"
+                height={550}
+                width={320}
               />
             ) : (
               <Image
-                src={deskPink}
+                src="/background/pink.png"
                 alt="Pink Vector"
-                className="absolute -top-[30%] lg:-top-[25%] lg:left-[18%] xl:left-[35%]"
+                className="absolute -top-[30%] left-[10%] lg:-top-[25%] lg:left-[33%] xl:left-[35%]"
+                height={800}
+                width={650}
               />
             )}
 
@@ -373,31 +371,46 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                   Team members who makes us
                   <span className="font-open-sans !font-normal"> stronger</span>
                   <Image
-                    src={lines}
+                    src="/featured/lines.png"
                     alt="Lines"
                     className="ml-[50%] md:ml-120"
+                    width={160}
+                    height={20}
                   />
                 </span>
               </div>
               {isMobile ? (
                 <MobImage
                   image={[
-                    { img: img1 },
-                    { img: img2 },
-                    { img: img3 },
-                    { img: img4 },
+                    {
+                      img: '/image/girl.jpg',
+                      name: 'kristy ABC hjsducs',
+                      role: 'CTO',
+                    },
+                    {
+                      img: '/image/business.png',
+                      name: 'kristy ABC',
+                    },
+                    {
+                      img: '/image/man-sitting-on-a-roof.png',
+                      name: 'kristy ABC hjsducs',
+                    },
+                    {
+                      img: '/image/calm-and-confident.png',
+                      name: 'kristy ABC',
+                    },
                   ]}
                 />
               ) : (
                 <DeskImage
                   image={[
-                    { img: img1 },
-                    { img: img2 },
-                    { img: img3 },
-                    { img: img4 },
-                    { img: img5 },
-                    { img: img6 },
-                    { img: img7 },
+                    { img: '/image/girl.jpg' },
+                    { img: '/image/business.png' },
+                    { img: '/image/man-sitting-on-a-roof.png' },
+                    { img: '/image/calm-and-confident.png' },
+                    { img: '/image/middleimg.png' },
+                    { img: '/image/red-tshirt-girl.jpg' },
+                    { img: '/image/girl-smiling.png' },
                   ]}
                 />
               )}
@@ -409,11 +422,9 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
         <div className="container !px-0 py-10">
           <div className="relative items-center text-center">
             <div className="absolute bottom-[10%] lg:bottom-[1%]">
-              <Image
-                src={fullpaw}
-                alt="full paw"
-                className="md:w-60 lg:w-60 xl:w-86"
-              />
+              <div className="h-50 w-50 md:h-60 md:w-60 lg:h-85 lg:w-70 xl:h-90 xl:w-86">
+                <Image src="/background/paw2full.png" alt="full paw" fill />
+              </div>
             </div>
             <div className="mx-auto max-w-[85%] pb-5 md:py-10 md:leading-8 lg:leading-10">
               <span
@@ -427,20 +438,20 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
 
               <span className="font-sansation relative ml-2 text-3xl italic md:ml-4 md:text-5xl lg:text-6xl xl:text-7xl">
                 about us
-                <Image
-                  src={curveLine}
-                  alt="curveLine"
+                <div
                   className={cn(
-                    `absolute ${isMobile ? 'hidden' : 'top-0 left-[95%] h-auto w-auto lg:h-full'}`
+                    `absolute ${isMobile ? 'hidden' : 'top-0 left-[95%] h-full w-25'}`
                   )}
-                />
+                >
+                  <Image src="/aboutUs/curveLine.png" alt="curveLine" fill />
+                </div>
               </span>
             </div>
           </div>
           <div className="container">
             {isMobile ? (
               <MobAboutUs
-                star={ratingStar}
+                star="/aboutUs/Star 3.svg"
                 carouselClass="bg-[#D5D8F5] rounded-lg"
                 description={[
                   'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
@@ -448,8 +459,8 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
               />
             ) : (
               <DeskAboutUs
-                star={ratingStar}
-                arrow={arrow}
+                star="/aboutUs/Star 3.svg"
+                arrow="/aboutUs/arrow.svg"
                 description={[
                   {
                     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut  aliquip ex ecommodo consequat. Duis aute irure dolor in reprehenderit ',
