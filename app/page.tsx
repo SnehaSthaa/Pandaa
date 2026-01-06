@@ -7,6 +7,8 @@ import facebook from '../public/footer/fb.svg'
 import instagram from '../public/footer/insta.svg'
 import linkedin from '../public/footer/linkedin.svg'
 import copyright from '../public/footer/copyright.png'
+import bulb from '../public/background/bulb.svg'
+import building from '../public/background/building.svg'
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <Poster
         images={[{ src: homeScreen }]}
         mobileImages={[{ src: mobScreen }]}
+        build={building}
+        bulb={bulb}
       />
 
       <Footer
