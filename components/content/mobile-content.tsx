@@ -36,7 +36,7 @@ const MobileContent = ({ image }: MobContentImage) => {
               {image.map((img, index) => (
                 <CarouselItem key={index}>
                   <div className="flex flex-col items-center">
-                    <h1 className="relative top-12 z-10 w-[15rem] rounded-sm bg-[#FF2BD1] py-1 text-center text-white">
+                    <h1 className="bg-accent-pink text-primary-white relative top-12 z-10 w-[15rem] rounded-sm py-1 text-center">
                       work with us for easy service
                     </h1>
 

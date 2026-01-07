@@ -13,9 +13,9 @@ export type ThemeData = {
 
 export const themes: ThemeData[] = [
   {
-    cardClass: 'bg-[#00A06D] text-white', 
+    cardClass: 'bg-secondary-green text-white', 
     desktopCardClass:
-      'bg-[#00A06D] ml-5 translate-x-[20%] lg:translate-x-[30%] text-white xl:w-97 w-65 lg:w-75 mt-12', 
+      'bg-secondary-green ml-5 translate-x-[20%] lg:translate-x-[30%] text-primary-white xl:w-97 w-60 lg:w-75 mt-12', 
     listStar: '/theme/white-star.svg',
     description: [
       { list: 'UI Design' },
@@ -29,12 +29,12 @@ export const themes: ThemeData[] = [
     cardLogoClass: 'absolute -top-15 left-2/3',
     imgLogo: '/theme/logo1.svg',
     listTextClass: 'text-white',
-    lineColor: 'bg-[#F7F7F7]',
+    lineColor: 'bg-primary-white',
   },
   {
-    cardClass: 'bg-[#FFD9F7] mt-12 text-black',
+    cardClass: 'bg-accent-pinklight mt-12 text-black',
     desktopCardClass:
-      'bg-[#FFD9F7] lg:w-75 -translate-x-[12%] lg:-translate-x-[4%] mt-12 text-black w-65 xl:w-97 top-0 z-1',
+      'bg-accent-pinklight lg:w-75 -translate-x-[12%] lg:-translate-x-[4%] mt-12 text-text-dark w-60 xl:w-97 top-0 z-1',
     listStar: '/theme/pink-star.svg',
     description: [
       { list: 'Web Development' },
@@ -47,13 +47,13 @@ export const themes: ThemeData[] = [
     title: 'Technology',
     cardLogoClass: 'absolute -top-15 left-2/3',
     imgLogo: '/theme/logo2.svg',
-    listTextClass: 'text-black',
-    lineColor: 'bg-[#FF2BD1]',
+    listTextClass: 'text-text-dark',
+    lineColor: 'bg-accent-pink',
   },
   {
-    cardClass: 'bg-[#414BAE] z-10 mt-12 text-white',
+    cardClass: 'bg-primary-blue z-10 mt-12 text-white',
     desktopCardClass:
-      'bg-[#414BAE] -translate-x-[40%] lg:-translate-x-[35%] mt-12 lg:w-75 w-65 text-white z-3 xl:w-97',
+      'bg-primary-blue -translate-x-[40%] lg:-translate-x-[35%] mt-12 lg:w-75 w-60 text-white z-3 xl:w-97',
     listStar: '/theme/white-star.svg',
     description: [
       { list: 'Branding' },
@@ -66,7 +66,7 @@ export const themes: ThemeData[] = [
     title: 'Marketing',
     cardLogoClass: 'absolute -top-15 left-2/3',
     imgLogo: '/theme/logo3.svg',
-    listTextClass: 'text-white',
-    lineColor: 'bg-[#F7F7F7]',
+    listTextClass: 'text-primary-white',
+    lineColor: 'bg-primary-white',
   },
 ]

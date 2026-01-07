@@ -24,7 +24,7 @@ const Post = ({ className, alt, src, toolTips }: Props) => {
           <p
             key={index}
             className={cn(
-              'absolute rounded-3xl text-center text-xs text-white',
+              'text-primary-white absolute rounded-3xl text-center text-xs',
               tooltip.className
             )}
           >

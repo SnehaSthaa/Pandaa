@@ -12,11 +12,11 @@ const DeskFeatured = () => {
           title="Khelaam"
           description="Khelam brings the entire futsal experience into one smooth, rapid booking platform — find a venue, schedule a match, and get on the court without the chaos."
           img="/featured/Khelaam.png"
-          buttonBg="bg-[#BC230F] absolute left-23 "
-          titleButtonClass="text-[#BC230F] text-sm border border-[#BC230F] px-5 rounded-full lg:text-md lg:px-8   "
-          cardImageClass="absolute left-80 w-120 mb-10 bottom-0 lg:left-120"
+          buttonBg="bg-accent-red absolute left-23 "
+          titleButtonClass="text-accent-red text-sm border border-accent-red px-5 rounded-full lg:text-md lg:px-8   "
+          cardImageClass="absolute left-1 w-120 mb-10 bottom-0 lg:left-120"
           message='futsal,booked in a "blink".'
-          messageClass="bg-[#414BAE]  absolute px-3 py-1 xl:right-1/7 top-1/5 right-1  xl:px-5 py-2 lg:px-2 "
+          messageClass="bg-primary-blue  absolute px-3 py-1 xl:right-1/7 top-1/5 right-1  xl:px-5 py-2 lg:px-2 "
           listItems={[
             'Instant venue booking',
             'Unified management dashboard',
@@ -25,8 +25,8 @@ const DeskFeatured = () => {
           ]}
         />
       </div>
-      <div className="relative left-3/4 mb-3 h-[194px] w-[194px] xl:left-4/5">
-        <div className="absolute top-1/6 left-1/6 h-30 w-30 rounded-full bg-[#00A06D]"></div>
+      <div className="relative left-3/5 mb-3 h-[194px] w-[190px] xl:left-4/5">
+        <div className="bg-secondary-green absolute top-1/6 left-1/6 h-30 w-30 rounded-full"></div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="194"
@@ -58,12 +58,12 @@ const DeskFeatured = () => {
           title="Pandaa"
           description="Khelam brings the entire futsal experience into one smooth, rapid booking platform — find a venue, schedule a match, and get on the court without the chaos."
           img="/featured/Pandaa.png"
-          buttonBg="bg-[#414BAE] absolute lg:right-110 right-80 "
-          titleButtonClass="text-[#414BAE] text-sm lg:text-md  border border-[#414BAE]  px-5 lg:px-8  rounded-full py-0 "
+          buttonBg="bg-primary-blue absolute lg:right-110 right-80 "
+          titleButtonClass="text-primary-blue text-sm lg:text-md  border border-primary-blue px-5 lg:px-8  rounded-full py-0 "
           cardImageClass="absolute lg:left-50 xl:left-[35%] left-30 bottom-5"
           listClassName="ml-45"
           message="your ticket to “everything”."
-          messageClass="bg-[#00A06D] absolute px-3 py-1 xl:left-1/7 xl:px-5 lg:py-2 top-1/5 left-1 lg:left-0 lg:px-2 "
+          messageClass="bg-secondary-green absolute px-3 py-1 xl:left-1/7 xl:px-5 lg:py-2 top-1/5 left-1 lg:left-0 lg:px-2 "
           listItems={[
             'Instant venue booking',
             'Unified management dashboard',

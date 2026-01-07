@@ -39,9 +39,9 @@ const DeskAboutUs = ({ star, arrow, description }: DeskProps) => {
               onClick={() => setActive(index)}
               className={cn(
                 'relative w-[360px] text-center transition-all duration-300',
-                isActive && 'z-20 scale-100 bg-[#414CAF] text-white',
+                isActive && 'bg-primary-blue text-primary-white z-20 scale-100',
                 (isPrev || isNext) &&
-                  'z-10 scale-90 bg-[#D5D8F5] text-[#272727] blur-[1px]',
+                  'bg-secondary-lightblue text-text-dark z-10 scale-90 blur-[1px]',
                 isPrev && '-mr-30',
                 isNext && '-ml-30',
                 !isActive && !isPrev && !isNext && 'hidden'
@@ -64,7 +64,9 @@ const DeskAboutUs = ({ star, arrow, description }: DeskProps) => {
                   <hr
                     className={cn(
                       'mb-6 border-t',
-                      isActive ? 'border-white/20' : 'border-[#272727]/10'
+                      isActive
+                        ? 'border-primary-white/50'
+                        : 'border-text-dark/40'
                     )}
                   />
 
@@ -83,7 +85,7 @@ const DeskAboutUs = ({ star, arrow, description }: DeskProps) => {
         <button
           onClick={handlePrev}
           disabled={active === 0}
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-[#D5D8F5] disabled:opacity-40"
+          className="bg-secondary-lightblue flex h-12 w-12 items-center justify-center rounded-full disabled:opacity-40"
         >
           <Image src={arrow} alt="Prev" width={14} height={14} />
         </button>
@@ -91,7 +93,7 @@ const DeskAboutUs = ({ star, arrow, description }: DeskProps) => {
         <button
           onClick={handleNext}
           disabled={active === description.length - 1}
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-[#D5D8F5] disabled:opacity-40"
+          className="bg-secondary-lightblue flex h-12 w-12 items-center justify-center rounded-full disabled:opacity-40"
         >
           <Image
             src={arrow}

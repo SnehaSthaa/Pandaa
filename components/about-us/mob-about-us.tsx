@@ -36,7 +36,7 @@ const AboutUs = ({ carouselClass, description, star }: MobProps) => {
                         />
                       ))}
                     </div>
-                    <hr className="m-5 bg-[#272727]" />
+                    <hr className="bg-text-dark m-5" />
                     <div className="text-center text-lg">
                       {description.map((description, index) => (
                         <p key={index}>{description}</p>
@@ -52,8 +52,8 @@ const AboutUs = ({ carouselClass, description, star }: MobProps) => {
             ))}
           </CarouselContent>
           <div className="">
-            <CarouselPrevious className="!top-[105%] left-[33%] !size-10 !translate-y-0 bg-[#D5D8F5]" />
-            <CarouselNext className="!top-[105%] right-[33%] !size-10 !translate-y-0 bg-[#D5D8F5]" />
+            <CarouselPrevious className="bg-secondary-lightblue !top-[105%] left-[33%] !size-10 !translate-y-0" />
+            <CarouselNext className="bg-secondary-lightblue !top-[105%] right-[33%] !size-10 !translate-y-0" />
           </div>
         </Carousel>
       </div>

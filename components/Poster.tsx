@@ -2,13 +2,13 @@
 
 import * as React from 'react'
 import Image from 'next/image'
-import MobAboutUs from './aboutUs/mob-about-us'
-import DeskAboutUs from './aboutUs/desk-about-us'
+import MobAboutUs from './about-us/mob-about-us'
+import DeskAboutUs from './about-us/desk-about-us'
 import { motion, useScroll, useSpring, useTransform } from 'motion/react'
 import MobNav from './nav/mobile-nav'
 import DeskNav from './nav/desktop-nav'
 import '../app/globals.css'
-import { useIsMobile } from '../components/hooks/use-is-mobile'
+import { useIsMobile } from './hooks/use-is-mobile'
 import MobileContent from './content/mobile-content'
 import DesktopContent from './content/desktop-content'
 import MobFeatured from './featured/mob-featured'
@@ -65,7 +65,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
   return (
     <>
       <section className="relative overflow-x-clip !px-0">
-        <section className="relative">
+        <section className="text-primary-white relative">
           <div
             className={cn(
               `relative z-10 container py-[1.875rem] ${isMobile ? '!m-0 !p-0' : ''}`
@@ -97,7 +97,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                   />
                 )}
 
-                <div className="absolute bottom-4 left-5 mb-8 flex w-full flex-col gap-3 text-center text-white md:bottom-6 lg:bottom-10">
+                <div className="absolute bottom-4 left-5 mb-8 flex w-full flex-col gap-3 text-center md:bottom-6 lg:bottom-10">
                   <div className="overflow-hidden">
                     <h1 className="md:slide-up text-5xl font-extrabold md:text-6xl lg:text-8xl">
                       Simple to use.
@@ -156,10 +156,10 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                 : 'sticky top-1/5 mt-20 flex items-center'
             )}
           >
-            <div className="container overflow-visible !overflow-x-clip !px-0">
+            <div className="text-text-dark container overflow-visible !overflow-x-clip !px-0">
               {isMobile ? (
                 <>
-                  <h1 className="px-6 text-center text-2xl font-bold text-black">
+                  <h1 className="px-6 text-center text-2xl font-bold">
                     empowering businesses with fast, reliable, and future-driven
                     IT solutions built for long-term success.
                   </h1>
@@ -174,7 +174,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                   <motion.h1
                     style={{ x, scale }}
                     viewport={{ once: true, amount: 0 }}
-                    className="text-6xl font-bold tracking-wider whitespace-nowrap text-black will-change-transform lg:text-7xl xl:text-8xl"
+                    className="text-6xl font-bold tracking-wider whitespace-nowrap will-change-transform lg:text-7xl xl:text-8xl"
                   >
                     {text.split(' ').map((word, index) => (
                       <motion.span
@@ -197,7 +197,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                     initial={{ x: -700, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 1, delay: 0.2, ease: 'easeIn' }}
-                    className="font-sansation mt-8 text-center text-lg text-black sm:mx-8 md:text-lg lg:text-xl"
+                    className="font-sansation mt-8 text-center text-lg sm:mx-8 md:text-lg lg:text-xl"
                   >
                     We build smart, scalable digital products that solve real
                     problems and provide <br /> actual outcomes. Simple to use,
@@ -264,7 +264,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                     height={20}
                   />
                 </div>
-                <div className="text-center leading-7 md:leading-12 lg:leading-18">
+                <div className="text-text-dark text-center leading-7 md:leading-12 lg:leading-18">
                   <span className="text-2xl font-bold md:text-4xl lg:text-5xl xl:text-7xl">
                     We turn big challenges into
                   </span>
@@ -284,9 +284,9 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
       </section>
 
       <section className="my-10">
-        <div className="container min-h-400 bg-[#272727] !px-[0px] py-5">
+        <div className="bg-text-dark container min-h-400 !px-[0px] py-5">
           <div className="relative flex flex-col">
-            <div className="mt-3 flex justify-center gap-4 py-5 text-white md:mt-15 md:gap-7">
+            <div className="text-primary-white mt-3 flex justify-center gap-4 py-5 md:mt-15 md:gap-7">
               <span className="text-4xl font-bold md:text-6xl lg:text-8xl">
                 Featured
               </span>
@@ -341,7 +341,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
               </p>
             </div>
           </div>
-          <div>{isMobile ? <MobTheme /> : <DeskTheme />}</div>
+          {isMobile ? <MobTheme /> : <DeskTheme />}
         </div>
       </section>
       <section>
@@ -349,7 +349,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
           <div className="relative z-0 h-full w-full">
             {isMobile ? (
               <Image
-                src="/background/mobPink.png"
+                src="/background/mob-pink.png"
                 alt="Pink Vector"
                 className="absolute -top-8 right-0"
                 height={550}
@@ -374,7 +374,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                     src="/featured/lines.png"
                     alt="Lines"
                     className="ml-[50%] md:ml-120"
-                    width={160}
+                    width={150}
                     height={20}
                   />
                 </span>
@@ -443,7 +443,7 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
                     `absolute ${isMobile ? 'hidden' : 'top-0 left-[95%] h-full w-25'}`
                   )}
                 >
-                  <Image src="/aboutUs/curveLine.png" alt="curveLine" fill />
+                  <Image src="/about-us/curve-line.png" alt="curveLine" fill />
                 </div>
               </span>
             </div>
@@ -451,16 +451,16 @@ export function Poster({ images, build, bulb, mobileImages }: DeskImageProps) {
           <div className="container">
             {isMobile ? (
               <MobAboutUs
-                star="/aboutUs/Star 3.svg"
-                carouselClass="bg-[#D5D8F5] rounded-lg"
+                star="/about-us/star.svg"
+                carouselClass="bg-secondary-lightblue rounded-lg"
                 description={[
                   'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
                 ]}
               />
             ) : (
               <DeskAboutUs
-                star="/aboutUs/Star 3.svg"
-                arrow="/aboutUs/arrow.svg"
+                star="/about-us/star.svg"
+                arrow="/about-us/arrow.svg"
                 description={[
                   {
                     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut  aliquip ex ecommodo consequat. Duis aute irure dolor in reprehenderit ',

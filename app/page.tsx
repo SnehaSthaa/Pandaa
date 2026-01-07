@@ -1,5 +1,5 @@
-import Footer from '@/components/Footer'
-import { Poster } from '@/components/Poster'
+import Footer from '@/components/footer'
+import { Poster } from '@/components/poster'
 import './globals.css'
 
 export default function Home() {

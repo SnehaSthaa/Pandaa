@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import '../app/globals.css'
-import { useIsMobile } from '../components/hooks/use-is-mobile'
+import { useIsMobile } from './hooks/use-is-mobile'
 import { cn } from '@/lib/utils'
 import { footer } from '../app/mock-data/footer'
 interface IconProps {
@@ -16,27 +16,23 @@ const Footer = ({ icons, copy }: Props) => {
   return (
     <>
       <div className="container !m-0 !p-0 md:!mx-auto md:!px-[30px] md:!py-[27px] lg:flex-row lg:gap-16">
-        <footer className="relative overflow-hidden rounded-4xl bg-[#414CAF] p-[30px] md:px-19">
+        <footer className="text-primary-white bg-primary-blue relative overflow-hidden rounded-4xl p-[30px] md:px-19">
           <div className="mx-auto flex flex-col-reverse gap-15 bg-contain bg-bottom bg-no-repeat md:flex-col md:bg-[url('/footer/PANDAA.svg')] md:py-5 lg:flex-row lg:!justify-between xl:!gap-55">
             <div className="flex-1">
-              <h2 className="mb-2 text-xl font-bold text-white">
-                Looking for job
-              </h2>
-              <p className="font-sansation text-md text-white">
+              <h2 className="mb-2 text-xl font-bold">Looking for job</h2>
+              <p className="font-sansation text-md">
                 Come join us at cubit.com.np
               </p>
 
               <div className="mt-15">
-                <h1 className="mb-2 text-2xl font-bold text-white">
-                  Stay up To date
-                </h1>
+                <h1 className="mb-2 text-2xl font-bold">Stay up To date</h1>
                 <div className="relative max-w-xs">
                   <input
                     type="email"
                     placeholder="Your email address"
-                    className="w-full rounded-xl bg-[#F7F7F7] px-4 py-3 pr-28"
+                    className="bg-primary-white w-full rounded-xl px-4 py-3 pr-28 text-[#2A2929] placeholder:text-sm"
                   />
-                  <button className="absolute top-1/2 right-1 -translate-y-1/2 rounded-xl bg-[#2E35B5] px-6 py-2 text-white">
+                  <button className="bg-primary-blue absolute top-1/2 right-1 -translate-y-1/2 rounded-xl px-6 py-2">
                     Submit
                   </button>
                 </div>
@@ -55,8 +51,8 @@ const Footer = ({ icons, copy }: Props) => {
             </div>
 
             <div className="flex-1">
-              <h1 className="mb-3 text-xl font-bold text-white">Company</h1>
-              <ul className="font-sansation flex flex-col gap-2 text-lg text-white">
+              <h1 className="mb-3 text-xl font-bold">Company</h1>
+              <ul className="font-sansation flex flex-col gap-2 text-lg">
                 {footer.company.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
@@ -64,13 +60,11 @@ const Footer = ({ icons, copy }: Props) => {
             </div>
 
             <div className="flex-1">
-              <h1 className="m-3 text-center text-3xl font-extrabold text-white md:hidden lg:hidden">
+              <h1 className="m-3 text-center text-3xl font-extrabold md:hidden lg:hidden">
                 PANDAA
               </h1>
-              <h1 className="mb-3 text-xl font-bold text-white">
-                Our Projects
-              </h1>
-              <ul className="font-sansation flex flex-col gap-2 text-lg text-white">
+              <h1 className="mb-3 text-xl font-bold">Our Projects</h1>
+              <ul className="font-sansation flex flex-col gap-2 text-lg">
                 {footer.projects.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}
@@ -90,7 +84,7 @@ const Footer = ({ icons, copy }: Props) => {
             </div>
           </div>
 
-          <div className="font-sansation mt-6 pt-5 text-center text-xs text-white">
+          <div className="font-sansation mt-6 pt-5 text-center text-xs">
             <div className="flex flex-col items-center justify-center gap-4 lg:flex-row">
               {footer.privacy.map((item, index) => (
                 <a key={index}>{item}</a>

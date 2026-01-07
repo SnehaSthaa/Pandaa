@@ -16,7 +16,8 @@ const desktopContent = ({ bgImage, image1, image2 }: Props) => {
     <>
       <motion.div
         initial={{ y: 300, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 1.5, ease: 'easeOut', delay: 0.1 }}
         className="container min-h-100 py-25 lg:min-h-150"
       >
@@ -24,7 +25,8 @@ const desktopContent = ({ bgImage, image1, image2 }: Props) => {
           <div className="overflow-x-hidden !px-0">
             <motion.div
               initial={{ x: 600, y: 100, opacity: 2 }}
-              animate={{ x: 0, y: 0, opacity: 100 }}
+              whileInView={{ x: 0, y: 0, opacity: 100 }}
+              viewport={{ once: true }}
               transition={{ duration: 3, ease: 'easeOut', delay: 0.2 }}
               className="absolute top-[-10rem] -left-33 container h-[30rem] w-[30rem] lg:-top-[12rem] lg:-left-35 lg:h-[35rem] lg:w-[35rem] xl:-left-45"
             >
@@ -36,8 +38,9 @@ const desktopContent = ({ bgImage, image1, image2 }: Props) => {
           <div className="relative bottom-0 container w-full !px-[80px]">
             <motion.div
               initial={{ x: 100 }}
-              animate={{ x: 0 }}
+              whileInView={{ x: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
+              viewport={{ once: true }}
               className="relative z-2"
             >
               <Content
@@ -55,7 +58,8 @@ const desktopContent = ({ bgImage, image1, image2 }: Props) => {
             </motion.div>
             <motion.div
               initial={{ x: -30, y: -10 }}
-              animate={{ x: 0, y: 0 }}
+              whileInView={{ x: 0, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 3, delay: 0.3 }}
               className="relative z-0"
             >
@@ -67,7 +71,8 @@ const desktopContent = ({ bgImage, image1, image2 }: Props) => {
             </motion.div>
             <motion.div
               initial={{ x: -150, y: -15, zIndex: 1 }}
-              animate={{ x: 0, y: 0, zIndex: 20 }}
+              whileInView={{ x: 0, y: 0, zIndex: 20 }}
+              viewport={{ once: true }}
               transition={{ duration: 1, ease: 'easeOut', delay: 0.4 }}
               className="relative z-1"
             >
@@ -91,7 +96,8 @@ const desktopContent = ({ bgImage, image1, image2 }: Props) => {
             </motion.div>
             <motion.div
               initial={{ x: -250 }}
-              animate={{ x: 0, y: 0 }}
+              whileInView={{ x: 0, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
               className="relative z-0"
             >

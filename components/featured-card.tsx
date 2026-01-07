@@ -64,7 +64,7 @@ const FeaturedCard = ({
           </div>
         </CardContent>
 
-        <CardDescription className="font-sansation text-md leading-6 text-black md:text-lg md:leading-9 lg:px-12 lg:text-xl">
+        <CardDescription className="font-sansation text-md text-text-dark leading-6 md:text-lg md:leading-9 lg:px-12 lg:text-xl">
           <div>{description}</div>
           <div className={cn('mt-7 md:!mt-12', listClassName)}>
             <h1 className="font-medium md:text-2xl">What can our app do?</h1>
@@ -76,7 +76,7 @@ const FeaturedCard = ({
           </div>
         </CardDescription>
 
-        <CardFooter className="my-2 text-white">
+        <CardFooter className="text-primary-white my-2">
           <button
             className={cn(
               isMobile
@@ -89,7 +89,7 @@ const FeaturedCard = ({
           </button>
         </CardFooter>
       </Card>
-      <div className={cn(`rounded-full text-white`, messageClass)}>
+      <div className={cn(`text-primary-white rounded-full`, messageClass)}>
         {message}
       </div>
     </div>
