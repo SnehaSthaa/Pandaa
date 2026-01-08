@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils'
-import Image from 'next/image'
+
 import React from 'react'
+import AppImage from './image'
 
 interface Tooltip {
   message: string
@@ -18,7 +19,7 @@ const Post = ({ className, alt, src, toolTips }: Props) => {
   return (
     <div className={cn(className, 'absolute')}>
       <div className="relative">
-        <Image alt={alt} src={src} height={330} width={400} />
+        <AppImage alt={alt} src={src} height={330} width={400} />
 
         {toolTips?.map((tooltip, index) => (
           <p

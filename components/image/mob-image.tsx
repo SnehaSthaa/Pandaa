@@ -1,5 +1,6 @@
 import React from 'react'
-import Image from 'next/image'
+import AppImage from '../image'
+import AppButton from '../button'
 
 interface ImageArr {
   img: string
@@ -17,15 +18,15 @@ const MobImage = ({ image }: ImageProps) => {
       <div className="grid grid-cols-2 gap-4">
         {image.map((item, index) => (
           <div key={index} className="flex flex-col gap-5">
-            <Image
+            <AppImage
               src={item.img}
               alt={item.name ?? 'Team member'}
               width={300}
               height={250}
-              className="aspect-[46/55] rounded-xl"
+              className="aspect-46/55 rounded-xl"
             />
 
-            <div className="flex flex-col items-center justify-center gap-2 text-center text-lg text-black">
+            <div className="text-text-dark flex flex-col items-center justify-center gap-2 text-center text-lg">
               <p className="font-medium">{item.name}</p>
               <p>{item.role ?? 'CTO'}</p>
             </div>
@@ -34,9 +35,9 @@ const MobImage = ({ image }: ImageProps) => {
       </div>
 
       <div className="mt-10 flex justify-center">
-        <button className="rounded-lg bg-[#414BAE] px-4 py-2 text-white">
+        <AppButton className="text-primary-white bg-primary-blue rounded-lg px-4 py-2">
           meet everyone
-        </button>
+        </AppButton>
       </div>
     </div>
   )

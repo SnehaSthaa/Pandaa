@@ -5,8 +5,9 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import Image from 'next/image'
+
 import { cn } from '@/lib/utils'
+import AppImage from './image'
 
 interface ListProps {
   list: string
@@ -34,7 +35,7 @@ const ThemeCard = ({
 }: ThemeProps) => {
   return (
     <>
-      <Card className={cn(cardClass)}>
+      <Card className={cardClass}>
         <CardHeader>
           <CardTitle>
             <div className="relative flex">
@@ -44,8 +45,8 @@ const ThemeCard = ({
                 className={cn('absolute -bottom-2 mx-2 h-1 w-7/8', lineColor)}
               ></div>
 
-              <Image
-                className={cn(cardLogoClass)}
+              <AppImage
+                className={cardLogoClass}
                 src={imgLogo}
                 alt="CardLogo"
                 height={100}
@@ -61,7 +62,12 @@ const ThemeCard = ({
                     className={cn('flex flex-row gap-2 md:flex', listTextClass)}
                     key={index}
                   >
-                    <Image src={listStar} alt="star" width={15} height={15} />
+                    <AppImage
+                      src={listStar}
+                      alt="star"
+                      width={15}
+                      height={15}
+                    />
                     <span className={cn('text-lg', listTextClass)}>
                       {list.list}
                     </span>

@@ -1,9 +1,9 @@
 'use client'
-import Image from 'next/image'
 import '../app/globals.css'
-import { useIsMobile } from './hooks/use-is-mobile'
-import { cn } from '@/lib/utils'
 import { footer } from '../app/mock-data/footer'
+import AppImage from './image'
+import AppButton from './button'
+import AppInput from './input'
 interface IconProps {
   img: string
 }
@@ -12,12 +12,11 @@ interface Props {
   copy: string
 }
 const Footer = ({ icons, copy }: Props) => {
-  const isMobile = useIsMobile()
   return (
     <>
-      <div className="container !m-0 !p-0 md:!mx-auto md:!px-[30px] md:!py-[27px] lg:flex-row lg:gap-16">
-        <footer className="text-primary-white bg-primary-blue relative overflow-hidden rounded-4xl p-[30px] md:px-19">
-          <div className="mx-auto flex flex-col-reverse gap-15 bg-contain bg-bottom bg-no-repeat md:flex-col md:bg-[url('/footer/PANDAA.svg')] md:py-5 lg:flex-row lg:!justify-between xl:!gap-55">
+      <div className="container m-0 p-0 md:mx-auto md:px-7.5 md:py-6.75 lg:flex-row lg:gap-16">
+        <footer className="text-primary-white bg-primary-blue relative overflow-hidden rounded-4xl p-7.5 md:px-19">
+          <div className="mx-auto flex flex-col-reverse gap-15 bg-contain bg-bottom bg-no-repeat md:flex-col md:bg-[url('/footer/PANDAA.svg')] md:py-5 lg:flex-row lg:justify-between xl:gap-55">
             <div className="flex-1">
               <h2 className="mb-2 text-xl font-bold">Looking for job</h2>
               <p className="font-sansation text-md">
@@ -27,22 +26,24 @@ const Footer = ({ icons, copy }: Props) => {
               <div className="mt-15">
                 <h1 className="mb-2 text-2xl font-bold">Stay up To date</h1>
                 <div className="relative max-w-xs">
-                  <input
-                    type="email"
-                    placeholder="Your email address"
-                    className="bg-primary-white w-full rounded-xl px-4 py-3 pr-28 text-[#2A2929] placeholder:text-sm"
+                  <AppInput
+                    type={'email'}
+                    placeholder={'Your email address'}
+                    className={
+                      'bg-primary-white w-full rounded-xl px-4 py-3 pr-28 text-[#2A2929] placeholder:text-sm'
+                    }
                   />
-                  <button className="bg-primary-blue absolute top-1/2 right-1 -translate-y-1/2 rounded-xl px-6 py-2">
+                  <AppButton className="bg-primary-blue absolute top-1/2 right-1 -translate-y-1/2 rounded-xl px-6 py-2">
                     Submit
-                  </button>
+                  </AppButton>
                 </div>
               </div>
               <div className="mt-6 flex gap-4 md:hidden lg:hidden">
                 {icons.map((item, index) => (
-                  <Image
+                  <AppImage
                     key={index}
                     src={item.img}
-                    alt="Facebook"
+                    alt="icons"
                     width={35}
                     height={35}
                   />
@@ -70,9 +71,9 @@ const Footer = ({ icons, copy }: Props) => {
                 ))}
               </ul>
 
-              <div className={cn(`${isMobile ? 'hidden' : 'mt-6 flex gap-4'}`)}>
+              <div className="mt-6 hidden gap-4 md:flex">
                 {icons.map((item, index) => (
-                  <Image
+                  <AppImage
                     key={index}
                     src={item.img}
                     alt="icons"
@@ -92,7 +93,7 @@ const Footer = ({ icons, copy }: Props) => {
             </div>
 
             <div className="font-sansation mt-3 flex items-center justify-center gap-2">
-              <Image src={copy} alt="Copyright" width={12} height={12} />
+              <AppImage src={copy} alt="Copyright" width={12} height={12} />
               2025 All rights reserved to Pandaa Entertaintment
             </div>
           </div>

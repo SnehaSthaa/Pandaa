@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+
 import {
   Carousel,
   CarouselContent,
@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/carousel'
 import { cn } from '@/lib/utils'
 import { Card, CardContent } from '../ui/card'
+import AppImage from '../image'
 interface MobProps {
   carouselClass: string
   star: string
@@ -27,7 +28,7 @@ const AboutUs = ({ carouselClass, description, star }: MobProps) => {
                   <CardContent>
                     <div className="flex flex-row items-center justify-center gap-3">
                       {Array.from({ length: 4 }).map((_, index) => (
-                        <Image
+                        <AppImage
                           src={star}
                           key={index}
                           alt="Stars"
@@ -51,9 +52,9 @@ const AboutUs = ({ carouselClass, description, star }: MobProps) => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="">
-            <CarouselPrevious className="bg-secondary-lightblue !top-[105%] left-[33%] !size-10 !translate-y-0" />
-            <CarouselNext className="bg-secondary-lightblue !top-[105%] right-[33%] !size-10 !translate-y-0" />
+          <div>
+            <CarouselPrevious className="bg-secondary-lightblue top-[105%] left-[33%] size-10 translate-y-0" />
+            <CarouselNext className="bg-secondary-lightblue top-[105%] right-[33%] size-10 translate-y-0" />
           </div>
         </Carousel>
       </div>

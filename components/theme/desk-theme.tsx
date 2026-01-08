@@ -40,7 +40,7 @@ const DeskTheme = () => {
             )}`}
           >
             <Theme
-              cardClass={theme.desktopCardClass || theme.cardClass}
+              cardClass={theme.desktopCardClass ?? ''}
               listStar={theme.listStar}
               description={theme.description}
               title={theme.title}

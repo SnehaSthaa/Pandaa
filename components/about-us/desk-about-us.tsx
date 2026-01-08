@@ -1,8 +1,9 @@
 'use client'
 import { Card, CardContent } from '@/components/ui/card'
-import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
+import AppImage from '../image'
+import AppButton from '../button'
 
 interface DescriptionProps {
   name: string
@@ -38,7 +39,7 @@ const DeskAboutUs = ({ star, arrow, description }: DeskProps) => {
               key={index}
               onClick={() => setActive(index)}
               className={cn(
-                'relative w-[360px] text-center transition-all duration-300',
+                'relative w-90 text-center transition-all duration-300',
                 isActive && 'bg-primary-blue text-primary-white z-20 scale-100',
                 (isPrev || isNext) &&
                   'bg-secondary-lightblue text-text-dark z-10 scale-90 blur-[1px]',
@@ -51,7 +52,7 @@ const DeskAboutUs = ({ star, arrow, description }: DeskProps) => {
                 <div>
                   <div className="mb-6 flex justify-center gap-1">
                     {Array.from({ length: 4 }).map((_, i) => (
-                      <Image
+                      <AppImage
                         key={i}
                         src={star}
                         alt="star"
@@ -82,27 +83,27 @@ const DeskAboutUs = ({ star, arrow, description }: DeskProps) => {
         })}
       </div>
       <div className="mt-10 flex flex-row justify-center gap-4">
-        <button
+        <AppButton
           onClick={handlePrev}
           disabled={active === 0}
           className="bg-secondary-lightblue flex h-12 w-12 items-center justify-center rounded-full disabled:opacity-40"
         >
-          <Image src={arrow} alt="Prev" width={14} height={14} />
-        </button>
+          <AppImage src={arrow} alt="Prev" width={14} height={14} />
+        </AppButton>
 
-        <button
+        <AppButton
           onClick={handleNext}
           disabled={active === description.length - 1}
           className="bg-secondary-lightblue flex h-12 w-12 items-center justify-center rounded-full disabled:opacity-40"
         >
-          <Image
+          <AppImage
             src={arrow}
             alt="Next"
             width={14}
             height={14}
             className="rotate-180"
           />
-        </button>
+        </AppButton>
       </div>
     </div>
   )

@@ -150,7 +150,7 @@
 }
 
 .container {
-  @apply mx-auto max-w-[1440px] px-[30px];
+  @apply mx-auto max-w-360;
 }
 
 @keyframes slideUpFade {

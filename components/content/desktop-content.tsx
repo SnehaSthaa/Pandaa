@@ -1,9 +1,8 @@
 'use client'
 import React from 'react'
 import Content from '../first'
-
-import Image from 'next/image'
 import { motion } from 'motion/react'
+import AppImage from '../image'
 
 interface Props {
   bgImage: string
@@ -22,20 +21,24 @@ const desktopContent = ({ bgImage, image1, image2 }: Props) => {
         className="container min-h-100 py-25 lg:min-h-150"
       >
         <div className="relative">
-          <div className="overflow-x-hidden !px-0">
+          <div className="overflow-x-hidden">
             <motion.div
               initial={{ x: 600, y: 100, opacity: 2 }}
               whileInView={{ x: 0, y: 0, opacity: 100 }}
               viewport={{ once: true }}
               transition={{ duration: 3, ease: 'easeOut', delay: 0.2 }}
-              className="absolute top-[-10rem] -left-33 container h-[30rem] w-[30rem] lg:-top-[12rem] lg:-left-35 lg:h-[35rem] lg:w-[35rem] xl:-left-45"
+              className="absolute -top-40 -left-20 h-110 w-110 lg:-top-48 lg:-left-[10%] lg:h-140 lg:w-140 xl:-left-[11%]"
             >
-              <Image src={bgImage} alt="Paw Background" fill />
+              <AppImage
+                src={bgImage}
+                alt="Paw Background"
+                className="h-full w-full"
+              />
             </motion.div>
           </div>
         </div>
         <div className="absolute inset-x-0 flex justify-center">
-          <div className="relative bottom-0 container w-full !px-[80px]">
+          <div className="relative bottom-0 container w-full px-20">
             <motion.div
               initial={{ x: 100 }}
               whileInView={{ x: 0 }}
@@ -44,7 +47,7 @@ const desktopContent = ({ bgImage, image1, image2 }: Props) => {
               className="relative z-2"
             >
               <Content
-                className="top-20 left-[73px] z-1 w-[26%] lg:w-[29%]"
+                className="top-20 left-18.25 z-1 w-[26%] lg:w-[29%]"
                 alt="First card"
                 src={image1}
                 toolTips={[
@@ -104,7 +107,7 @@ const desktopContent = ({ bgImage, image1, image2 }: Props) => {
               <Content
                 alt="Fourth Card"
                 src={image2}
-                className="top-25 right-[70px] w-[30%] lg:top-[9.5rem] lg:w-[32%] xl:top-55"
+                className="top-25 right-17.5 w-[30%] lg:top-38 lg:w-[32%] xl:top-55"
               />
             </motion.div>
           </div>
