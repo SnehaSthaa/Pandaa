@@ -11,7 +11,7 @@ const DeskFeatured = () => {
         <DeskFeature
           title="Khelaam"
           description="Khelam brings the entire futsal experience into one smooth, rapid booking platform — find a venue, schedule a match, and get on the court without the chaos."
-          img="/featured/Khelaam.png"
+          img="/featured/khelaam.png"
           buttonBg="bg-accent-red absolute left-23 "
           titleButtonClass="text-accent-red text-sm border border-accent-red px-5 rounded-full lg:text-md lg:px-8   "
           cardImageClass="absolute left-[33%] w-120 mb-6 bottom-0 lg:left-120"
@@ -57,7 +57,7 @@ const DeskFeatured = () => {
         <DeskFeature
           title="Pandaa"
           description="Khelam brings the entire futsal experience into one smooth, rapid booking platform — find a venue, schedule a match, and get on the court without the chaos."
-          img="/featured/Pandaa.png"
+          img="/featured/pandaa.png"
           buttonBg="bg-primary-blue absolute lg:right-110 right-80 "
           titleButtonClass="text-primary-blue text-sm lg:text-md  border border-primary-blue px-5 lg:px-8  rounded-full py-0 "
           cardImageClass="absolute lg:left-[12%] xl:left-[35%] left-30 bottom-5"
