@@ -30,7 +30,7 @@ const DeskImage = ({ image }: DeskImageProps) => {
     <>
       <div className="flex flex-row gap-4 lg:justify-between">
         <div className="flex flex-col gap-3">
-          <div className='[mask-image:url("/image/subtract1.png")] mask-[no-repeat] mask-size-[100%_100%] mask-[center_center]'>
+          <div className='mask-[no-repeat] mask-[url("/image/subtract1.png")] mask-size-[100%_100%] mask-[center_center]'>
             <AppImage
               src={image[0].img}
               alt="Image first"
@@ -48,7 +48,7 @@ const DeskImage = ({ image }: DeskImageProps) => {
           />
         </div>
         <div className="mt-12 flex items-center">
-          <div className='mask-center_center] mask-[url("/image/subtract2.png")] mask-size-[100%_100%] mask-no-repeat'>
+          <div className='mask-[url("/image/subtract2.png")] mask-size-[100%_100%] mask-[center_center] mask-no-repeat'>
             <AppImage
               src={image[2].img}
               alt="image Third"
